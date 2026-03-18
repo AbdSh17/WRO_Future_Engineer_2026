@@ -13,10 +13,7 @@ physics, the calculations used.
 - [3. Calculating Required Torque](#3-calculating-required-torque)
 - [4. Calculating Required Speed](#4-calculating-required-speed)
 - [5. The Speed-Torque Curve](#5-the-speed-torque-curve)
-- [6. Motor Evaluation — JGB37-520](#6-motor-evaluation--jgb37-520)
-- [7. The Differential — Extra Consideration](#7-the-differential--extra-consideration)
-- [8. Requirements Summary](#8-requirements-summary)
-
+- [6. The Differential — Extra Consideration](#7-the-differential--extra-consideration)
 ---
 
 ## 1. Setup and Drivetrain Configuration
