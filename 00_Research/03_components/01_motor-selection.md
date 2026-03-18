@@ -28,6 +28,13 @@ Battery → Motor → Differential → Rear Left Wheel
                               → Rear Right Wheel
 ```
 
+<p align="center">
+  <img src="../materials/differential-gear-from-to-03-bevel-gears.jpg" alt="description" width= 450/>
+
+</p>
+
+
+
 Because there is only one motor, its full torque output passes through a
 single shaft into the differential. There is no per-wheel torque splitting
 at the motor stage.
