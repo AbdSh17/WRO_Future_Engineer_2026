@@ -13,7 +13,6 @@ physics, the calculations used.
 - [3. Calculating Required Torque](#3-calculating-required-torque)
 - [4. Calculating Required Speed](#4-calculating-required-speed)
 - [5. The Speed-Torque Curve](#5-the-speed-torque-curve)
-- [6. The Differential — Extra Consideration](#6-the-differential--extra-consideration)
 ---
 
 ## 1. Setup and Drivetrain Configuration
@@ -239,21 +238,3 @@ This result converges with the 3× safety factor from Section 3.5. Both
 methods confirm the stall torque must be above **~3.0–3.5 kg·cm.**
 
 ---
-
-## 6. The Differential — Extra Consideration
-
-An open differential splits torque **equally** between both output shafts
-at all times. While mechanically simple and fully rules-compliant, it has
-one known limitation:
-
-> If one wheel loses traction, the differential sends all torque to the
-> slipping wheel (the path of least resistance), and the gripping wheel
-> loses its drive force.
-
-On the WRO track — a smooth, flat, indoor surface — wheel slip is unlikely
-under normal conditions. However, this behavior can appear during sharp
-high-speed turns.
-
-The practical mitigation is to **ramp motor speed gradually on startup**
-rather than applying full PWM instantly. This reduces the peak torque spike
-at the contact patch and minimizes the chance of slip at launch.
