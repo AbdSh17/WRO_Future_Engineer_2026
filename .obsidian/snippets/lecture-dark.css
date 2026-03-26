@@ -1,0 +1,248 @@
+/* ============================================================
+   Lecture Dark — Obsidian CSS Snippet
+   Optimized for: real-time note-taking, code, callouts
+   Install: .obsidian/snippets/lecture-dark.css
+   ============================================================ */
+
+/* ── Base colors ─────────────────────────────────────────── */
+.theme-dark {
+  --bg-primary:        #0f1117;
+  --bg-secondary:      #161b22;
+  --bg-tertiary:       #1c2333;
+  --border-color:      #2a3444;
+
+  --text-normal:       #cdd6f4;
+  --text-muted:        #6e7d9e;
+  --text-faint:        #3d4f6e;
+
+  --accent:            #89b4fa;   /* blue  */
+  --accent-warm:       #f38ba8;   /* red   */
+  --accent-green:      #a6e3a1;   /* green */
+  --accent-yellow:     #f9e2af;   /* yellow */
+  --accent-purple:     #cba6f7;   /* purple */
+  --accent-teal:       #94e2d5;   /* teal  */
+
+  /* Obsidian required overrides */
+  --background-primary:          var(--bg-primary);
+  --background-primary-alt:      var(--bg-secondary);
+  --background-secondary:        var(--bg-secondary);
+  --background-secondary-alt:    var(--bg-tertiary);
+  --background-modifier-border:  var(--border-color);
+  --text-normal:                 #cdd6f4;
+  --text-muted:                  #6e7d9e;
+  --text-faint:                  #3d4f6e;
+  --interactive-accent:          var(--accent);
+
+--h1-size: 2.2rem;
+--h2-size: 1.8rem;
+--h3-size: 1.4rem;
+--h4-size: 1.2rem;
+--h5-size: 1.1rem;
+--h6-size: 1rem;
+
+/* Heading colors — Obsidian native variables */
+
+  --h1-color: #89b4fa;   /* accent blue   */
+  --h2-color: #cba6f7;   /* accent purple */
+  --h3-color: #94e2d5;   /* accent teal   */
+  --h4-color: #f9e2af;   /* accent yellow */
+  --h5-color: #a6e3a1;   /* accent green  */
+  --h6-color: #6e7d9e;   /* muted         */
+
+  /* Heading weights */
+  --h1-weight: 800;
+  --h2-weight: 700;
+  --h3-weight: 600;
+  --h4-weight: 600;
+}
+
+/* ── Headings ─────────────────────────────────────────────── */
+
+/* Reading mode */
+.markdown-rendered h1 { font-size: var(--h1-size) !important; color: var(--h1-color) !important; font-weight: var(--h1-weight); border-bottom: 2px solid var(--border-color); padding-bottom: 0.25em; }
+.markdown-rendered h2 { font-size: var(--h2-size) !important; color: var(--h2-color) !important; font-weight: var(--h2-weight); border-left: 3px solid var(--h2-color); padding-left: 0.5em; }
+.markdown-rendered h3 { font-size: var(--h3-size) !important; color: var(--h3-color) !important; font-weight: var(--h3-weight); }
+.markdown-rendered h4 { font-size: var(--h4-size) !important; color: var(--h4-color) !important; font-weight: var(--h4-weight); }
+
+/* Live preview — line-level (CM6) */
+.cm-line.HyperMD-header-1 { font-size: var(--h1-size) !important; }
+.cm-line.HyperMD-header-2 { font-size: var(--h2-size) !important; }
+.cm-line.HyperMD-header-3 { font-size: var(--h3-size) !important; }
+.cm-line.HyperMD-header-4 { font-size: var(--h4-size) !important; }
+
+/* Live preview — text color (span-level) */
+.cm-header-1 { color: var(--h1-color) !important; font-weight: var(--h1-weight); }
+.cm-header-2 { color: var(--h2-color) !important; font-weight: var(--h2-weight); }
+.cm-header-3 { color: var(--h3-color) !important; font-weight: var(--h3-weight); }
+.cm-header-4 { color: var(--h4-color) !important; font-weight: var(--h4-weight); }
+/* ── Body text ───────────────────────────────────────────── */
+.markdown-rendered p,
+.cm-line {
+  line-height: 1.75;
+  font-size: 0.97em;
+}
+
+/* ── Inline code ─────────────────────────────────────────── */
+.markdown-rendered code,
+.cm-inline-code {
+  background: #1e2638;
+  color: #f38ba8;
+  border: 1px solid #2e3a50;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.88em;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ── Code blocks ─────────────────────────────────────────── */
+.markdown-rendered pre {
+  background: #141923 !important;
+  border: 1px solid #2a3444;
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 1em 1.2em;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.markdown-rendered pre code {
+  background: transparent !important;
+  border: none !important;
+  color: #cdd6f4;
+  font-size: 0.87em;
+  line-height: 1.7;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  padding: 0;
+}
+
+/* ── Highlights ──────────────────────────────────────────── */
+.markdown-rendered mark {
+  background: rgba(249, 226, 175, 0.18);
+  color: var(--accent-yellow);
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
+/* ── Callouts ────────────────────────────────────────────── */
+.callout {
+  border-radius: 6px;
+  padding: 0.75em 1em;
+  margin: 1em 0;
+  border-left-width: 3px;
+  background: var(--bg-secondary) !important;
+}
+
+/* note */
+.callout[data-callout="note"] {
+  border-left-color: var(--accent) !important;
+}
+.callout[data-callout="note"] .callout-title {
+  color: var(--accent);
+}
+
+/* info */
+.callout[data-callout="info"] {
+  border-left-color: var(--accent-teal) !important;
+}
+.callout[data-callout="info"] .callout-title {
+  color: var(--accent-teal);
+}
+
+/* warning */
+.callout[data-callout="warning"],
+.callout[data-callout="caution"] {
+  border-left-color: var(--accent-yellow) !important;
+}
+.callout[data-callout="warning"] .callout-title,
+.callout[data-callout="caution"] .callout-title {
+  color: var(--accent-yellow);
+}
+
+/* danger */
+.callout[data-callout="danger"],
+.callout[data-callout="error"] {
+  border-left-color: var(--accent-warm) !important;
+}
+.callout[data-callout="danger"] .callout-title,
+.callout[data-callout="error"] .callout-title {
+  color: var(--accent-warm);
+}
+
+/* tip / success */
+.callout[data-callout="tip"],
+.callout[data-callout="success"] {
+  border-left-color: var(--accent-green) !important;
+}
+.callout[data-callout="tip"] .callout-title,
+.callout[data-callout="success"] .callout-title {
+  color: var(--accent-green);
+}
+
+/* ── Bullet & task lists ─────────────────────────────────── */
+.markdown-rendered ul li::marker {
+  color: var(--accent);
+}
+
+.markdown-rendered ol li::marker {
+  color: var(--accent-purple);
+}
+
+.task-list-item-checkbox {
+  accent-color: var(--accent);
+}
+
+/* ── Blockquotes ─────────────────────────────────────────── */
+.markdown-rendered blockquote {
+  border-left: 3px solid var(--accent-purple);
+  background: var(--bg-secondary);
+  border-radius: 0 4px 4px 0;
+  padding: 0.5em 1em;
+  color: var(--text-muted);
+}
+
+/* ── Horizontal rule ─────────────────────────────────────── */
+.markdown-rendered hr {
+  border-color: var(--border-color);
+  margin: 1.5em 0;
+}
+
+/* ── Tables ──────────────────────────────────────────────── */
+.markdown-rendered th {
+  background: var(--bg-tertiary);
+  color: var(--accent);
+  border-color: var(--border-color) !important;
+}
+
+.markdown-rendered td {
+  border-color: var(--border-color) !important;
+}
+
+.markdown-rendered tr:nth-child(even) td {
+  background: var(--bg-secondary);
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ── Bold & Italic ───────────────────────────────────────── */
+
+/* Reading mode */
+.markdown-rendered strong { color: var(--accent-warm); }
+.markdown-rendered em { color: var(--accent-green); }
+.markdown-rendered strong em,
+.markdown-rendered em strong { color: var(--accent-yellow); }
+
+/* Live preview */
+.cm-strong { color: var(--accent-warm) !important; }
+.cm-em { color: var(--accent-green) !important; }
