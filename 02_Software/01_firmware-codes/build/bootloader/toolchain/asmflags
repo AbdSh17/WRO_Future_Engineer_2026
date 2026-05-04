@@ -1,0 +1,6 @@
+"-specs=/home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/build/bootloader/specs/picolibc.specs"
+-Wno-frame-address
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero
