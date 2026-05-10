@@ -1,4 +1,4 @@
-Command: cmake -G Ninja -B /home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=/home/abdsh/.espressif/python_env/idf6.1_py3.14_env/bin/python -DESP_PLATFORM=1 -DIDF_TARGET=esp32 -DCCACHE_ENABLE=False /home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software
+Command: cmake -G Ninja -B /home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=/home/abdsh/.espressif/python_env/idf6.1_py3.14_env/bin/python -DESP_PLATFORM=1 -DCCACHE_ENABLE=False /home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes
 Configuration Report               
  ───────────────────────────────── 
    Parser Version: 1               

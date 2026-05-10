@@ -18,8 +18,8 @@ end
 
 # Load bootloader symbols
 set confirm off
-    add-symbol-file /home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/build/bootloader/bootloader.elf
+    add-symbol-file /home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader/bootloader.elf
 set confirm on
 
 # Load application symbols
-file /home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/build/WRO2026.elf
+file /home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/WRO_Future_Engineer_2026.elf

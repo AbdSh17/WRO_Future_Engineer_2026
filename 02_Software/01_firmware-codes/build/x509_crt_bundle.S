@@ -1,4 +1,4 @@
-/* * Data converted from /home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)

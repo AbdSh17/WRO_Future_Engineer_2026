@@ -64,4 +64,9 @@ void set_angle(int angle_deg) {
                  (angle_deg * (SERVO_MAX_US - SERVO_MID_US) / 90));
 
   ledc_set_duty(SERVO_MODE, SERVO_CHANNEL, us_to_duty(pulse_us));
-    ledc_update_duty(SERVO_MODE,
+  ledc_update_duty(SERVO_MODE, SERVO_CHANNEL);
+}
+
+void servo_center(void) { set_angle(0); }
+
+void servo_disable(void) { ledc_stop(SERVO_MODE, SERVO_CHANNEL, 0); }
