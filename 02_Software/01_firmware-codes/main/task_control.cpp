@@ -50,11 +50,13 @@ static void control_task(void *arg) {
   (void)arg;
 
   TickType_t last = xTaskGetTickCount();
-  TickType_t inc = pdMS_TO_TICKS(CONTROL_PERIOD_MS);
+  TickType_t inc = pdMS_TO_TICKS(CTRL_PERIOD_MS);
   if (inc == 0)
     inc = 1;
 
   int64_t prev_us = esp_timer_get_time();
+
+  yaw_zero();
 
   while (true) {
     // --- dt ----------------------------------------------------------
@@ -68,8 +70,8 @@ static void control_task(void *arg) {
     int64_t yaw_age = 0;
     yaw_read(&yaw_deg, &yaw_ok, &yaw_age);
 
-    tof_state_t tof = {};
-    tof_read(&tof);
+    // tof_state_t tof = {};
+    // tof_read(&tof);
 
     if (!yaw_ok) {
       vTaskDelayUntil(&last, inc);
@@ -106,6 +108,7 @@ static void control_task(void *arg) {
     }
 
     vTaskDelayUntil(&last, inc);
+    taskYIELD();
   }
 }
 
@@ -115,6 +118,6 @@ void control_task_start(turn_ctrl_t *turn, forward_ctrl_t *fwd,
   (void)tof_mtx;
   s_turn = turn;
   s_fwd = fwd;
-  xTaskCreate(control_task, "ctrl_task", CTRL_STACK_SIZE, NULL, CTRL_PRIORITY,
-              NULL);
+  xTaskCreatePinnedToCore(control_task, "ctrl_task", CTRL_STACK_SIZE, NULL,
+                          CTRL_PRIORITY, NULL, 0);
 }

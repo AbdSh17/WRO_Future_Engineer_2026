@@ -15,6 +15,7 @@ static SemaphoreHandle_t s_mutex = NULL;
 static volatile float g_yaw = 0.0f;
 static volatile bool g_yaw_valid = false;
 static volatile int64_t g_yaw_us = 0;
+static volatile bool g_zero_requested = false;
 
 static void yaw_write(float yaw_deg) {
   if (!s_mutex)
@@ -40,10 +41,7 @@ void yaw_read(float *yaw_deg, bool *ok, int64_t *age_us) {
   *age_us = v ? (now - t) : INT64_MAX;
 }
 
-void yaw_zero(void) {
-  if (s_imu)
-    bno_zero_yaw(s_imu);
-}
+void yaw_zero(void) { g_zero_requested = true; }
 
 static void imu_task(void *arg) {
   (void)arg;
@@ -51,8 +49,11 @@ static void imu_task(void *arg) {
   TickType_t inc = pdMS_TO_TICKS(IMU_PERIOD_MS);
   if (inc == 0)
     inc = 1;
-
   while (true) {
+    if (g_zero_requested) {
+      g_zero_requested = false;
+      bno_zero_yaw(s_imu);
+    }
     float yaw_rel = bno_read_yaw_rel_deg(s_imu);
     if (!isnan(yaw_rel)) {
       yaw_write(yaw_rel);
@@ -66,5 +67,6 @@ static void imu_task(void *arg) {
 void imu_task_start(bno055_imu_t *imu, SemaphoreHandle_t mutex) {
   s_imu = imu;
   s_mutex = mutex;
-  xTaskCreate(imu_task, "imu_task", IMU_STACK_SIZE, NULL, IMU_PRIORITY, NULL);
+  xTaskCreatePinnedToCore(imu_task, "imu_task", IMU_STACK_SIZE, NULL,
+                          IMU_PRIORITY, NULL, 1);
 }

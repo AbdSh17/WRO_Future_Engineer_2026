@@ -4,7 +4,7 @@
 
 // ── Pin
 // ───────────────────────────────────────────────────────────────────────
-#define SERVO_PIN GPIO_NUM_18
+#define SERVO_PIN GPIO_NUM_32
 
 // ── LEDC
 // ──────────────────────────────────────────────────────────────────────
@@ -58,10 +58,13 @@ void set_angle(int angle_deg) {
   if (angle_deg < -90)
     angle_deg = -90;
 
-  // map -90..+90 → SERVO_MIN_US..SERVO_MAX_US
-  uint16_t pulse_us =
-      (uint16_t)(SERVO_MID_US +
-                 (angle_deg * (SERVO_MAX_US - SERVO_MID_US) / 90));
+  uint16_t pulse_us;
+  if (angle_deg >= 0)
+    pulse_us =
+        SERVO_MID_US + (int32_t)angle_deg * (SERVO_MAX_US - SERVO_MID_US) / 90;
+  else
+    pulse_us =
+        SERVO_MID_US + (int32_t)angle_deg * (SERVO_MID_US - SERVO_MIN_US) / 90;
 
   ledc_set_duty(SERVO_MODE, SERVO_CHANNEL, us_to_duty(pulse_us));
   ledc_update_duty(SERVO_MODE, SERVO_CHANNEL);

@@ -18,7 +18,7 @@ static constexpr uint8_t TOF_FRONT_ADDR = 0x32;
 
 // -------------------- XSHUT pins (change to your wiring) --------------------
 #define TOF_RIGHT_SHDN GPIO_NUM_15
-#define TOF_FRONT_SHDN GPIO_NUM_19
+#define TOF_FRONT_SHDN GPIO_NUM_25
 #define TOF_LEFT_SHDN GPIO_NUM_21
 
 static inline TickType_t ms_to_ticks(uint32_t ms) { return pdMS_TO_TICKS(ms); }
@@ -124,7 +124,7 @@ esp_err_t ToF::tof_setup() {
   all_init_tofs_off();
 
   // Side sensors first: move them off the default address
-  ESP_ERROR_CHECK(init_side_tofs(rightTof, leftTof));
+  // ESP_ERROR_CHECK(init_side_tofs(rightTof, leftTof));
 
   // Front sensor last: can safely stay at 0x29
   ESP_ERROR_CHECK(init_front_tof(frontTof));

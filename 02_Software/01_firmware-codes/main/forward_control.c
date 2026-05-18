@@ -4,13 +4,13 @@
 void forward_init(forward_ctrl_t *f) {
   f->target_deg = 0.0f;
   f->max_correction =
-      15.0f; // tighter clamp than turning — small corrections only
+      45.0f; // tighter clamp than turning — small corrections only
   f->active = false;
 
   // ── PID ──────────────────────────────────────
   // conservative gains — servo is correcting small drift, not executing a turn
-  f->pid.Kp = 1.5f;
-  f->pid.Ki = 0.05f;
+  f->pid.Kp = 2.5f;
+  f->pid.Ki = 0.15f;
   f->pid.Kd = 0.02f;
   f->pid.prev_error = 0.0f;
   f->pid.integral = 0.0f;

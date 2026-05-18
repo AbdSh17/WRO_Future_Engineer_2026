@@ -17,10 +17,10 @@
 // STBY = GPIO_NUM_27
 // =====================================================================================
 
-#define MOTOR_IN1_GPIO GPIO_NUM_32
-#define MOTOR_IN2_GPIO GPIO_NUM_35
-#define MOTOR_PWM_GPIO GPIO_NUM_34
-#define MOTOR_STBY_GPIO GPIO_NUM_33
+#define MOTOR_IN1_GPIO GPIO_NUM_18
+#define MOTOR_IN2_GPIO GPIO_NUM_5
+#define MOTOR_PWM_GPIO GPIO_NUM_17
+#define MOTOR_STBY_GPIO GPIO_NUM_19
 
 // =====================================================================================
 // LEDC config

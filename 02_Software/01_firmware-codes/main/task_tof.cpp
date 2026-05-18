@@ -52,13 +52,14 @@ static void tof_task(void *arg) {
     uint8_t right = 0;
 
     esp_err_t ef = s_tof->frontTof.readRangeMMFiltered(front);
-    esp_err_t el = s_tof->leftTof.readRangeMMFiltered(left);
-    esp_err_t er = s_tof->rightTof.readRangeMMFiltered(right);
+    // esp_err_t el = s_tof->leftTof.readRangeMMFiltered(left);
+    // esp_err_t er = s_tof->rightTof.readRangeMMFiltered(right);
 
-    if (ef == ESP_OK && el == ESP_OK && er == ESP_OK) {
+    if (ef == ESP_OK /* && el == ESP_OK && er == ESP_OK */) {
       tof_write(front, left, right);
     } else {
-      ESP_LOGW(TAG, "ToF read failed: front=%d left=%d right=%d", ef, el, er);
+      // ESP_LOGW(TAG, "ToF read failed: front=%d left=%d right=%d", ef, el,
+      // er);
     }
 
     vTaskDelayUntil(&last, inc);

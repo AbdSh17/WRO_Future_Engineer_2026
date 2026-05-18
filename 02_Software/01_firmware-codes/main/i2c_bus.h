@@ -6,15 +6,15 @@
 
 /* IMU bus */
 #define IMU_PORT I2C_NUM_1
-#define IMU_SDA GPIO_NUM_17
-#define IMU_SCL GPIO_NUM_16
+#define IMU_SDA GPIO_NUM_22
+#define IMU_SCL GPIO_NUM_23
 #define IMU_HZ 400000
-#define IMU_ADDR 0x28
+#define IMU_ADDR 0x29
 
 /* ToF bus */
 #define TOF_PORT I2C_NUM_0
-#define TOF_SDA GPIO_NUM_23
-#define TOF_SCL GPIO_NUM_22
+#define TOF_SDA GPIO_NUM_27
+#define TOF_SCL GPIO_NUM_14
 #define TOF_HZ 400000
 #define TOF_ADDR 0x29
 
