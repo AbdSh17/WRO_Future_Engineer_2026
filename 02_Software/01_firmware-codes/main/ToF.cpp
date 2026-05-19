@@ -17,9 +17,9 @@ static constexpr uint8_t TOF_LEFT_ADDR = 0x31;
 static constexpr uint8_t TOF_FRONT_ADDR = 0x32;
 
 // -------------------- XSHUT pins (change to your wiring) --------------------
-#define TOF_RIGHT_SHDN GPIO_NUM_15
-#define TOF_FRONT_SHDN GPIO_NUM_25
-#define TOF_LEFT_SHDN GPIO_NUM_21
+#define TOF_RIGHT_SHDN GPIO_NUM_16
+#define TOF_FRONT_SHDN GPIO_NUM_26 // 25 or 26
+#define TOF_LEFT_SHDN GPIO_NUM_15
 
 static inline TickType_t ms_to_ticks(uint32_t ms) { return pdMS_TO_TICKS(ms); }
 
@@ -71,25 +71,25 @@ void ToF::all_tofs_on() {
 // Init helpers
 // ---------------------------------------------------------------------------
 
-esp_err_t ToF::init_side_tofs(VL6180X &right, VL6180X &left) {
+esp_err_t ToF::init_side_tofs(VL53L0X &right, VL53L0X &left) {
+
   // We assume all sensors are currently OFF.
 
   // Attach shutdown pins (so each class can toggle its own XSHUT)
   right.shdnAttach(TOF_RIGHT_SHDN);
   left.shdnAttach(TOF_LEFT_SHDN);
 
-  // ---- RIGHT (VL6180X) ----
-  right.shdnUp(10); // now only RIGHT is alive at 0x29
-  ESP_ERROR_CHECK(right.begin());
+  right.shdnUp(20);
+  ESP_ERROR_CHECK(right.begin(true, true, false));
   ESP_ERROR_CHECK(right.setAddress(TOF_RIGHT_ADDR));
-  vTaskDelay(ms_to_ticks(5)); // small gap
+  vTaskDelay(ms_to_ticks(5));
 
-  // ---- LEFT (VL6180X) ----
-  left.shdnUp(10); // now only LEFT is alive at 0x29 (RIGHT already moved)
-  ESP_ERROR_CHECK(left.begin());
+  left.shdnUp(20);
+  ESP_ERROR_CHECK(left.begin(true, true, false));
   ESP_ERROR_CHECK(left.setAddress(TOF_LEFT_ADDR));
   vTaskDelay(ms_to_ticks(5));
 
+  //
   return ESP_OK;
 }
 
@@ -124,7 +124,7 @@ esp_err_t ToF::tof_setup() {
   all_init_tofs_off();
 
   // Side sensors first: move them off the default address
-  // ESP_ERROR_CHECK(init_side_tofs(rightTof, leftTof));
+  ESP_ERROR_CHECK(init_side_tofs(rightTof, leftTof));
 
   // Front sensor last: can safely stay at 0x29
   ESP_ERROR_CHECK(init_front_tof(frontTof));

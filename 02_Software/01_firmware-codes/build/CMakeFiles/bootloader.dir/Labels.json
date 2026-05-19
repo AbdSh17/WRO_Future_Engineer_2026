@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "/home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/CMakeFiles/bootloader"
+			"file" : "/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/CMakeFiles/bootloader"
 		},
 		{
-			"file" : "/home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/CMakeFiles/bootloader.rule"
+			"file" : "/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/CMakeFiles/bootloader.rule"
 		},
 		{
-			"file" : "/home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/CMakeFiles/bootloader-complete.rule"
+			"file" : "/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/CMakeFiles/bootloader-complete.rule"
 		},
 		{
-			"file" : "/home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+			"file" : "/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
 		},
 		{
-			"file" : "/home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+			"file" : "/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
 		},
 		{
-			"file" : "/home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+			"file" : "/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
 		},
 		{
-			"file" : "/home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+			"file" : "/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
 		},
 		{
-			"file" : "/home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+			"file" : "/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
 		},
 		{
-			"file" : "/home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+			"file" : "/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
 		},
 		{
-			"file" : "/home/abdsh/Desktop/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+			"file" : "/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
 		}
 	],
 	"target" : 

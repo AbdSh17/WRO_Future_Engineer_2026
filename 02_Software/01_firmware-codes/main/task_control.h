@@ -20,6 +20,8 @@ extern "C" {
 void control_task_start(turn_ctrl_t *turn, forward_ctrl_t *fwd,
                         SemaphoreHandle_t yaw_mtx, SemaphoreHandle_t tof_mtx);
 
+bool ctrl_turn_done(void); // returns true once, then resets
+
 /**
  * @brief Request a turn to a target heading.
  *        Safe to call from any task or the algorithm layer.

@@ -1,0 +1,96 @@
+Command: ninja flash
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader && /home/abdsh/.espressif/python_env/idf6.1_py3.14_env/bin/python /home/abdsh/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader/bootloader.bin
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/main.cpp.obj
+In file included from [01m[K/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/ToF.h:3[m[K,
+                 from [01m[K/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/main.cpp:1[m[K:
+[01m[K/home/abdsh/esp/esp-idf/components/driver/i2c/include/driver/i2c.h:29:103:[m[K [01;36m[Knote: [m[K'[01m[K#pragma message: 
+================================ CRITICAL WARNING ================================
+This legacy I2C driver (driver/i2c.h) is officially END-OF-LIFE (EOL) as of ESP-IDF v6.0.
+
+1. NO SUPPORT: ESP-IDF will not provide updates, bug fixes, or security patches timely.
+2. PLANNED REMOVAL: This driver WILL BE REMOVED in ESP-IDF v7.0 (next major release).
+3. ACTION REQUIRED: Migrate to 'driver/i2c_master.h' or 'driver/i2c_slave.h' immediately.
+   - If you are a library maintainer, please update your code.
+   - If you are using 3rd-party libraries, contact the authors for updates.
+
+4. SUPPRESS WARNING: Set Kconfig 'CONFIG_I2C_SUPPRESS_DEPRECATE_WARN=y' to silent
+   this warning. However, by doing so, YOU ASSUME ALL RISKS including potential
+   security vulnerabilities, system instability, and future incompatibility.
+
+For API reference of the new I2C driver, see: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/i2c.html
+For other items about migration, see: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/migration-guides/index.html
+==================================================================================
+   [m[K'
+   29 |                 "==================================================================================\n"[01;36m[K)[m[K
+      |                                                                                                       [01;36m[K^[m[K
+[01m[K/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/main.cpp:[m[K In function '[01m[Kvoid[01;32m[K app_main[m[K()[m[K':
+[01m[K/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/main.cpp:121:7:[m[K [01;35m[Kwarning: [m[Kunused variable '[01m[Ki[m[K' [[01;35m[K-Wunused-variable[m[K]
+  121 |   int [01;35m[Ki[m[K = 0;
+      |       [01;35m[K^[m[K
+[01m[K/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/main.cpp:122:8:[m[K [01;35m[Kwarning: [m[Kunused variable '[01m[Kflag[m[K' [[01;35m[K-Wunused-variable[m[K]
+  122 |   bool [01;35m[Kflag[m[K = false;
+      |        [01;35m[K^~~~[m[K
+[5/10] Linking C static library esp-idf/main/libmain.a
+[6/10] Generating esp-idf/esp_system/ld/sections.ld
+[7/10] Linking CXX executable WRO_Future_Engineer_2026.elf
+[8/10] Generating binary image from built executable
+esptool v5.2.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/WRO_Future_Engineer_2026.bin
+[9/10] cd /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build && /home/abdsh/.espressif/python_env/idf6.1_py3.14_env/bin/python /home/abdsh/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/partition_table/partition-table.bin /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/WRO_Future_Engineer_2026.bin
+WRO_Future_Engineer_2026.bin binary size 0x2f0c0 bytes. Smallest app partition is 0x100000 bytes. 0xd0f40 bytes (82%) free.
+[9/10] Running utility command for flash
+esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 40m --flash-size 2MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 WRO_Future_Engineer_2026.bin
+esptool v5.2.0
+Serial port /dev/ttyUSB0:
+Connecting....
+Connected to ESP32 on /dev/ttyUSB0:
+Chip type:          ESP32-D0WD-V3 (revision v3.1)
+Features:           Wi-Fi, BT, Dual Core + LP Core, 240MHz, Vref calibration in eFuse, Coding Scheme None
+Crystal frequency:  40MHz
+MAC:                f0:24:f9:0c:bc:08
+
+Uploading stub flasher...
+Running stub flasher...
+Stub flasher running.
+Changing baud rate to 460800...
+Changed.
+
+Configuring flash size...
+SHA digest in image updated.
+Flash will be erased from 0x00001000 to 0x00007fff...
+Compressed 26128 bytes to 16580...
+Writing at 0x00001000 [                              ]   0.0% 0/16580 bytes... 
+Writing at 0x0000750c [============================> ]  98.8% 16384/16580 bytes... 
+Writing at 0x00007610 [==============================] 100.0% 16580/16580 bytes... 
+Wrote 26128 bytes (16580 compressed) at 0x00001000 in 0.8 seconds (264.7 kbit/s).
+Verifying written data...
+Hash of data verified.
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 3072 bytes to 103...
+Writing at 0x00008000 [                              ]   0.0% 0/103 bytes... 
+Writing at 0x00008c00 [==============================] 100.0% 103/103 bytes... 
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (466.6 kbit/s).
+Verifying written data...
+Hash of data verified.
+Flash will be erased from 0x00010000 to 0x0003ffff...
+Compressed 192704 bytes to 110340...
+Writing at 0x00010000 [                              ]   0.0% 0/110340 bytes... 
+Writing at 0x0001b708 [===>                          ]  14.8% 16384/110340 bytes... 
+Writing at 0x00023225 [=======>                      ]  29.7% 32768/110340 bytes... 
+Writing at 0x00028ce1 [============>                 ]  44.5% 49152/110340 bytes... 
+Writing at 0x0002eb40 [================>             ]  59.4% 65536/110340 bytes... 
+Writing at 0x000345ef [=====================>        ]  74.2% 81920/110340 bytes... 
+Writing at 0x0003a838 [=========================>    ]  89.1% 98304/110340 bytes... 
+Writing at 0x0003f0c0 [==============================] 100.0% 110340/110340 bytes... 
+Wrote 192704 bytes (110340 compressed) at 0x00010000 in 3.0 seconds (518.0 kbit/s).
+Verifying written data...
+Hash of data verified.
+
+Hard resetting via RTS pin...

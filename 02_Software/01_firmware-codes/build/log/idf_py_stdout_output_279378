@@ -1,0 +1,204 @@
+Command: /home/abdsh/.espressif/python_env/idf6.1_py3.14_env/bin/python /home/abdsh/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/WRO_Future_Engineer_2026.elf /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader/bootloader.elf -m '/home/abdsh/.espressif/python_env/idf6.1_py3.14_env/bin/python' '/home/abdsh/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x12 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time May 18 2026 19:22:51[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b098h ( 45208) map[0m
+[0;32mI (104) esp_image: segment 1: paddr=0001b0c0 vaddr=3ffb0000 size=02ac0h ( 10944) load[0m
+[0;32mI (108) esp_image: segment 2: paddr=0001db88 vaddr=40080000 size=02490h (  9360) load[0m
+[0;32mI (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1331ch ( 78620) map[0m
+[0;32mI (143) esp_image: segment 4: paddr=00033344 vaddr=40082490 size=09e98h ( 40600) load[0m
+[0;32mI (160) esp_image: segment 5: paddr=0003d1e4 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (167) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (167) boot: Disabling RNG early entropy source...[0m
+[0;32mI (178) cpu_start: Multicore app[0m
+[0;32mI (186) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (187) cpu_start: Pro cpu start user code[0m
+[0;32mI (187) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (189) app_init: Application information:[0m
+[0;32mI (192) app_init: Project name:     WRO_Future_Engineer_2026[0m
+[0;32mI (198) app_init: App version:      a096a22-dirty[0m
+[0;32mI (202) app_init: Compile time:     May 18 2026 19:22:43[0m
+[0;32mI (207) app_init: ELF file SHA256:  28c2dac45...[0m
+[0;32mI (212) app_init: ESP-IDF:          v6.1-dev-2938-g12f36a021f[0m
+[0;32mI (217) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (221) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (225) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (229) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (235) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (240) heap_init: At 3FFB3778 len 0002C888 (178 KiB): DRAM[0m
+[0;32mI (245) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (251) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (256) heap_init: At 4008C328 len 00013CD8 (79 KiB): IRAM[0m
+[0;33mW (263) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (275) spi_flash: detected chip: generic[0m
+[0;32mI (278) spi_flash: flash io: dio[0m
+[0;33mW (281) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (294) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (304) main_task: Started on CPU0[0m
+[0;32mI (314) main_task: Calling app_main()[0m
+[0;32mI (2664) MAIN: BNO055 ready.[0m
+[0;32mI (2764) IMU: Yaw: 4.65[0m
+[0;32mI (2864) IMU: Yaw: 5.81[0m
+[0;32mI (2964) IMU: Yaw: 5.81[0m
+[0;32mI (3064) IMU: Yaw: 5.81[0m
+[0;32mI (3164) IMU: Yaw: 5.81[0m
+[0;32mI (3264) IMU: Yaw: 5.81[0m
+[0;32mI (3364) IMU: Yaw: 5.81[0m
+[0;32mI (3464) IMU: Yaw: 5.81[0m
+[0;32mI (3564) IMU: Yaw: 5.81[0m
+[0;32mI (3664) IMU: Yaw: 5.81[0m
+[0;32mI (3764) IMU: Yaw: 5.81[0m
+[0;32mI (3864) IMU: Yaw: 5.81[0m
+[0;32mI (3964) IMU: Yaw: 5.81[0m
+[0;32mI (4064) IMU: Yaw: 5.81[0m
+[0;32mI (4164) IMU: Yaw: 5.81[0m
+[0;32mI (4264) IMU: Yaw: 5.81[0m
+[0;32mI (4364) IMU: Yaw: 5.81[0m
+[0;32mI (4464) IMU: Yaw: 5.81[0m
+[0;32mI (4564) IMU: Yaw: 5.81[0m
+[0;32mI (4664) IMU: Yaw: 5.81[0m
+[0;32mI (4764) IMU: Yaw: 5.81[0m
+[0;32mI (4864) IMU: Yaw: 5.81[0m
+[0;32mI (4964) IMU: Yaw: 5.81[0m
+[0;32mI (5064) IMU: Yaw: 5.81[0m
+[0;32mI (5164) IMU: Yaw: 5.81[0m
+[0;32mI (5264) IMU: Yaw: 5.81[0m
+[0;32mI (5364) IMU: Yaw: 5.81[0m
+[0;32mI (5464) IMU: Yaw: 5.95[0m
+[0;32mI (5564) IMU: Yaw: 6.46[0m
+[0;32mI (5664) IMU: Yaw: 6.27[0m
+[0;32mI (5764) IMU: Yaw: 6.39[0m
+[0;32mI (5864) IMU: Yaw: 6.44[0m
+[0;32mI (5964) IMU: Yaw: 5.96[0m
+[0;32mI (6064) IMU: Yaw: 6.33[0m
+[0;32mI (6164) IMU: Yaw: 6.36[0m
+[0;32mI (6264) IMU: Yaw: 6.76[0m
+[0;32mI (6364) IMU: Yaw: 7.05[0m
+[0;32mI (6464) IMU: Yaw: 7.71[0m
+[0;32mI (6564) IMU: Yaw: 8.57[0m
+[0;32mI (6664) IMU: Yaw: 9.97[0m
+[0;32mI (6764) IMU: Yaw: 10.79[0m
+[0;32mI (6864) IMU: Yaw: 10.44[0m
+[0;32mI (6964) IMU: Yaw: 9.91[0m
+[0;32mI (7064) IMU: Yaw: 10.44[0m
+[0;32mI (7164) IMU: Yaw: 10.38[0m
+[0;32mI (7264) IMU: Yaw: 9.46[0m
+[0;32mI (7364) IMU: Yaw: 8.65[0m
+[0;32mI (7464) IMU: Yaw: 8.28[0m
+[0;32mI (7564) IMU: Yaw: 8.71[0m
+[0;32mI (7664) IMU: Yaw: 9.60[0m
+[1;31mE (7674) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (7674) task_wdt:  - IDLE1 (CPU 1)[0m
+[1;31mE (7674) task_wdt: Tasks currently running:[0m
+[1;31mE (7674) task_wdt: CPU 0: IDLE0[0m
+[1;31mE (7674) task_wdt: CPU 1: ctrl_task[0m
+[1;31mE (7674) task_wdt: Print CPU 1 backtrace[0m
+
+
+Backtrace: 0x400840D6:0x3FFB1870 0x40083315:0x3FFB1890 0x4000BFED:0x3FFB8020 0x4008767A:0x3FFB8030 0x400D9534:0x3FFB8050 0x400D6631:0x3FFB8070 0x400D6D23:0x3FFB8090 0x400D680C:0x3FFB80B0 0x400E10A9:0x3FFB8110
+
+[0;32mI (7764) IMU: Yaw: 9.55[0m
+[0;32mI (7864) IMU: Yaw: 8.56[0m
+[0;32mI (7964) IMU: Yaw: 8.33[0m
+[0;32mI (8064) IMU: Yaw: 7.85[0m
+[0;32mI (8164) IMU: Yaw: 7.20[0m
+[0;32mI (8264) IMU: Yaw: 6.83[0m
+[0;32mI (8364) IMU: Yaw: 6.69[0m
+[0;32mI (8464) IMU: Yaw: 5.59[0m
+[0;32mI (8564) IMU: Yaw: 5.12[0m
+[0;32mI (8664) IMU: Yaw: 5.06[0m
+[0;32mI (8764) IMU: Yaw: 4.43[0m
+[0;32mI (8864) IMU: Yaw: 4.89[0m
+[0;32mI (8964) IMU: Yaw: 5.30[0m
+[0;32mI (9064) IMU: Yaw: 6.42[0m
+[0;32mI (9164) IMU: Yaw: 5.74[0m
+[0;32mI (9264) IMU: Yaw: 5.30[0m
+[0;32mI (9364) IMU: Yaw: 5.68[0m
+[0;32mI (9464) IMU: Yaw: 5.99[0m
+[0;32mI (9564) IMU: Yaw: 5.79[0m
+[0;32mI (9664) IMU: Yaw: 5.49[0m
+[0;32mI (9764) IMU: Yaw: 5.52[0m
+[0;32mI (9864) IMU: Yaw: 5.54[0m
+[0;32mI (9964) IMU: Yaw: 5.50[0m
+[0;32mI (10064) IMU: Yaw: 5.50[0m
+[0;32mI (10164) IMU: Yaw: 5.50[0m
+[0;32mI (10264) IMU: Yaw: 5.56[0m
+[0;32mI (10364) IMU: Yaw: 5.86[0m
+[0;32mI (10464) IMU: Yaw: 7.11[0m
+[0;32mI (10564) IMU: Yaw: 8.38[0m
+[0;32mI (10664) IMU: Yaw: 8.93[0m
+[0;32mI (10764) IMU: Yaw: 9.20[0m
+[0;32mI (10864) IMU: Yaw: 9.72[0m
+[0;32mI (10964) IMU: Yaw: 10.21[0m
+[0;32mI (11064) IMU: Yaw: 10.65[0m
+[0;32mI (11164) IMU: Yaw: 10.64[0m
+[0;32mI (11264) IMU: Yaw: 10.50[0m
+[0;32mI (11364) IMU: Yaw: 10.51[0m
+[0;32mI (11464) IMU: Yaw: 10.60[0m
+[0;32mI (11564) IMU: Yaw: 10.69[0m
+[0;32mI (11664) IMU: Yaw: 10.81[0m
+[0;32mI (11764) IMU: Yaw: 10.75[0m
+[0;32mI (11864) IMU: Yaw: 10.75[0m
+[0;32mI (11964) IMU: Yaw: 10.71[0m
+[0;32mI (12064) IMU: Yaw: 10.41[0m
+[0;32mI (12164) IMU: Yaw: 10.00[0m
+[0;32mI (12264) IMU: Yaw: 9.69[0m
+[0;32mI (12364) IMU: Yaw: 9.74[0m
+[0;32mI (12464) IMU: Yaw: 9.81[0m
+[0;32mI (12564) IMU: Yaw: 10.12[0m
+[0;32mI (12664) IMU: Yaw: 10.19[0m
+[1;31mE (12674) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[1;31mE (12674) task_wdt:  - IDLE1 (CPU 1)[0m
+[1;31mE (12674) task_wdt: Tasks currently running:[0m
+[1;31mE (12674) task_wdt: CPU 0: IDLE0[0m
+[1;31mE (12674) task_wdt: CPU 1: ctrl_task[0m
+[1;31mE (12674) task_wdt: Print CPU 1 backtrace[0m
+
+
+Backtrace: 0x400840D6:0x3FFB1870 0x40083315:0x3FFB1890 0x4000BFED:0x3FFB8020 0x4008767A:0x3FFB8030 0x400D9534:0x3FFB8050 0x400D6631:0x3FFB8070 0x400D6D23:0x3FFB8090 0x400D680C:0x3FFB80B0 0x400E10A9:0x3FFB8110
+
+[0;32mI (12764) IMU: Yaw: 10.33[0m
+[0;32mI (12864) IMU: Yaw: 10.75[0m
+[0;32mI (12964) IMU: Yaw: 11.15[0m
+[0;32mI (13064) IMU: Yaw: 11.54[0m
+[0;32mI (13164) IMU: Yaw: 12.49[0m
+[0;32mI (13264) IMU: Yaw: 13.30[0m
+[0;32mI (13364) IMU: Yaw: 12.65[0m
+[0;32mI (13464) IMU: Yaw: 10.68[0m
+[0;32mI (13564) IMU: Yaw: 9.62[0m
+[0;32mI (13664) IMU: Yaw: 8.81[0m
+[0;32mI (13764) IMU: Yaw: 7.13[0m
+[0;32mI (13864) IMU: Yaw: 6.41[0m
+[0;32mI (13964) IMU: Yaw: 6.79[0m
+[0;32mI (14064) IMU: Yaw: 6.65[0m
+[0;32mI (14164) IMU: Yaw: 6.69[0m
+[0;32mI (14264) IMU: Yaw: 6.69[0m
+[0;32mI (14364) IMU: Yaw: 6.69[0m
+[0;32mI (14464) IMU: Yaw: 6.69[0m
+[0;32mI (14564) IMU: Yaw: 6.69[0m
+[0;32mI (14664) IMU: Yaw: 6.69[0m
+[0;32mI (14764) IMU: Yaw: 6.69[0m
+[0;32mI (14864) IMU: Yaw: 6.69[0m
+[0;32mI (14964) IMU: Yaw: 6.69[0m
+[0;32mI (15064) IMU: Yaw: 6.69[0m

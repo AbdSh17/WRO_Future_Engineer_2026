@@ -6,6 +6,7 @@
 #include "freertos/task.h"
 #include "imu_bno055.h"
 #include "motor_control.h"
+#include "task_algorithm.h"
 #include "task_control.h"
 #include "turn_control.h"
 #include <i2c_bus.h>
@@ -114,28 +115,28 @@ extern "C" void app_main(void) {
   vTaskDelay(pdMS_TO_TICKS(100));
 
   control_task_start(&g_turn, &g_fwd, yaw_mutex, tof_mutex);
-  ctrl_request_forward(0.0f);
-  // move_forward(100);
+
+  algorithm_task_start();
 
   // ============================
   int i = 0;
   bool flag = false;
 
   while (true) {
-    vTaskDelay(pdMS_TO_TICKS(100));
-
-    float yaw_deg = 0.0f;
-    bool yaw_ok = false;
-    int64_t yaw_age = 0;
-    yaw_read(&yaw_deg, &yaw_ok, &yaw_age);
-
-    // ESP_LOGI("IMU", "Yaw: %.2f", yaw_deg);
-
-    tof_state_t tof;
-    if (tof_read(&tof) && tof.valid) {
-      ESP_LOGI("TEST", "L=%u  F=%u  R=%u mm", tof.left_mm, tof.front_mm,
-               tof.right_mm);
-    }
+    vTaskDelay(pdMS_TO_TICKS(1000));
+    //
+    // float yaw_deg = 0.0f;
+    // bool yaw_ok = false;
+    // int64_t yaw_age = 0;
+    // yaw_read(&yaw_deg, &yaw_ok, &yaw_age);
+    //
+    // // ESP_LOGI("IMU", "Yaw: %.2f", yaw_deg);
+    //
+    // tof_state_t tof;
+    // if (tof_read(&tof) && tof.valid) {
+    //   ESP_LOGI("TEST", "L=%u  F=%u  R=%u mm", tof.left_mm, tof.front_mm,
+    //            tof.right_mm);
+    // }
     // set_angle(i);
     //
     // //

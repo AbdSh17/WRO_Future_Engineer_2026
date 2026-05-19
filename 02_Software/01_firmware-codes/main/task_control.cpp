@@ -5,6 +5,8 @@
 #include "esp_log.h"
 #include "esp_timer.h"
 #include "freertos/task.h"
+#include "motor_control.h"
+#include "servo_control.h"
 #include "task_imu.h"
 #include "task_tof.h"
 #include <task_config.h>
@@ -17,12 +19,15 @@ std::atomic<bool> g_fwd_requested{false};
 std::atomic<bool> g_stop_requested{false};
 std::atomic<float> g_turn_target_deg{0.0f};
 std::atomic<float> g_fwd_target_deg{0.0f};
+std::atomic<bool> g_turn_done{false};
 
 // --- Controller handles (owned exclusively by control task) ------------------
 static turn_ctrl_t *s_turn = NULL;
 static forward_ctrl_t *s_fwd = NULL;
 
 // --- Public command API ------------------------------------------------------
+
+bool ctrl_turn_done(void) { return g_turn_done.exchange(false); }
 
 void ctrl_request_turn(float target_deg) {
   g_fwd_requested.store(false);
@@ -82,6 +87,7 @@ static void control_task(void *arg) {
     if (g_stop_requested.exchange(false)) {
       turn_cancel(s_turn);
       forward_stop(s_fwd);
+      stop();
       vTaskDelayUntil(&last, inc);
       continue;
     }
@@ -99,6 +105,8 @@ static void control_task(void *arg) {
       bool done = turn_update(s_turn, yaw_deg, dt_s);
       if (done) {
         forward_start(s_fwd, yaw_deg);
+        servo_center();
+        g_turn_done.store(true);
         ESP_LOGI(TAG, "turn done, holding yaw=%.1f", yaw_deg);
       }
     }

@@ -1,0 +1,38 @@
+Command: /home/abdsh/.espressif/python_env/idf6.1_py3.14_env/bin/python /home/abdsh/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/WRO_Future_Engineer_2026.elf /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader/bootloader.elf -m '/home/abdsh/.espressif/python_env/idf6.1_py3.14_env/bin/python' '/home/abdsh/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+[0;33m--- esp-idf-monitor 1.9.0 on /dev/ttyUSB0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x40080400: [0;33m_invalid_pc_placeholder[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m2259[0m
+[0m--- 0x40080644: [0;33mcall_start_cpu0[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m--- 0x400d79af: [0;33mVL53L0X::init_internal()[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/VL53L0X.cpp[0m[0m:[1;31m216[0m
+[0m--- 0x400872c7: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m48[0m
+[0m--- 0x4008736d: [0;33mpanic_abort[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m464[0m
+[0m--- 0x40087335: [0;33mesp_system_abort[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/esp_system/port/esp_system_chip.c[0m[0m:[1;31m87[0m
+[0m--- 0x40086445: [0;33mabort[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/esp_libc/src/abort.c[0m[0m:[1;31m38[0m
+[0m--- 0x400872c7: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m48[0m
+[0m--- 0x400d79af: [0;33mVL53L0X::init_internal()[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/VL53L0X.cpp[0m[0m:[1;31m216[0m
+[0m--- 0x400d7df5: [0;33mVL53L0X::begin(bool, bool, bool)[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/VL53L0X.cpp[0m[0m:[1;31m164[0m
+[0m--- 0x400d6f2e: [0;33mToF::init_front_tof(VL53L0X&)[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/ToF.cpp[0m[0m:[1;31m105[0m
+[0m--- 0x400d6f57: [0;33mToF::tof_setup()[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/ToF.cpp[0m[0m:[1;31m130[0m
+[0m--- 0x400d6486: [0;33minit_tof()[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/main.cpp[0m[0m:[1;31m54[0m
+[0m--- 0x400d653c: [0;33mapp_main[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/main.cpp[0m[0m:[1;31m98[0m
+[0m--- 0x400d43de: [0;33mmain_task[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/freertos/app_startup.c[0m[0m:[1;31m199[0m
+[0m--- 0x400e2361: [0;33mvPortTaskWrapper[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m143[0m
+[0m--- 0x40080400: [0;33m_invalid_pc_placeholder[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m2259[0m
+[0m--- 0x40080644: [0;33mcall_start_cpu0[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m--- 0x400d79af: [0;33mVL53L0X::init_internal()[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/VL53L0X.cpp[0m[0m:[1;31m216[0m
+[0m--- 0x400872c7: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m48[0m
+[0m--- 0x4008736d: [0;33mpanic_abort[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m464[0m
+[0m--- 0x40087335: [0;33mesp_system_abort[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/esp_system/port/esp_system_chip.c[0m[0m:[1;31m87[0m
+[0m--- 0x40086445: [0;33mabort[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/esp_libc/src/abort.c[0m[0m:[1;31m38[0m
+[0m--- 0x400872c7: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m48[0m
+[0m--- 0x400d79af: [0;33mVL53L0X::init_internal()[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/VL53L0X.cpp[0m[0m:[1;31m216[0m
+[0m--- 0x400d7df5: [0;33mVL53L0X::begin(bool, bool, bool)[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/VL53L0X.cpp[0m[0m:[1;31m164[0m
+[0m--- 0x400d6f2e: [0;33mToF::init_front_tof(VL53L0X&)[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/ToF.cpp[0m[0m:[1;31m105[0m
+[0m--- 0x400d6f57: [0;33mToF::tof_setup()[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/ToF.cpp[0m[0m:[1;31m130[0m
+[0m--- 0x400d6486: [0;33minit_tof()[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/main.cpp[0m[0m:[1;31m54[0m
+[0m--- 0x400d653c: [0;33mapp_main[0m[0m at [0;32m/home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/main.cpp[0m[0m:[1;31m98[0m
+[0m--- 0x400d43de: [0;33mmain_task[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/freertos/app_startup.c[0m[0m:[1;31m199[0m
+[0m--- 0x400e2361: [0;33mvPortTaskWrapper[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m143[0m
+[0m--- 0x40080400: [0;33m_invalid_pc_placeholder[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m2259[0m
+[0m--- 0x40080644: [0;33mcall_start_cpu0[0m[0m at [0;32m/home/abdsh/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m

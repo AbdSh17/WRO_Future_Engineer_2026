@@ -20,7 +20,7 @@ private:
   void all_init_tofs_off();
 
   // Init helpers (implemented in ToF.cpp)
-  esp_err_t init_side_tofs(VL6180X &right, VL6180X &left);
+  esp_err_t init_side_tofs(VL53L0X &right, VL53L0X &left);
   esp_err_t init_front_tof(VL53L0X &front);
 
 public:
@@ -37,9 +37,9 @@ public:
   void all_tofs_on();
 
   // Sensors
-  VL6180X rightTof;
+  VL53L0X rightTof;
   VL53L0X frontTof;
-  VL6180X leftTof;
+  VL53L0X leftTof;
 
   /**
    * @brief Initialize all ToF sensors (XSHUT sequencing + begin + optional

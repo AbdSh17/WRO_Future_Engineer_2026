@@ -10,7 +10,7 @@ static ToF *s_tof = NULL;
 static SemaphoreHandle_t s_mutex = NULL;
 static tof_state_t g_state = {};
 
-static void tof_write(uint16_t front, uint8_t left, uint8_t right) {
+static void tof_write(uint16_t front, uint16_t left, uint16_t right) {
   if (!s_mutex)
     return;
   tof_state_t s;
@@ -48,18 +48,17 @@ static void tof_task(void *arg) {
 
   while (true) {
     uint16_t front = 0;
-    uint8_t left = 0;
-    uint8_t right = 0;
+    uint16_t left = 0;
+    uint16_t right = 0;
 
     esp_err_t ef = s_tof->frontTof.readRangeMMFiltered(front);
-    // esp_err_t el = s_tof->leftTof.readRangeMMFiltered(left);
-    // esp_err_t er = s_tof->rightTof.readRangeMMFiltered(right);
+    esp_err_t el = s_tof->leftTof.readRangeMMFiltered(left);
+    esp_err_t er = s_tof->rightTof.readRangeMMFiltered(right);
 
-    if (ef == ESP_OK /* && el == ESP_OK && er == ESP_OK */) {
+    if (ef == ESP_OK && el == ESP_OK && er == ESP_OK) {
       tof_write(front, left, right);
     } else {
-      // ESP_LOGW(TAG, "ToF read failed: front=%d left=%d right=%d", ef, el,
-      // er);
+      ESP_LOGW(TAG, "ToF read failed: front=%d left=%d right=%d", ef, el, er);
     }
 
     vTaskDelayUntil(&last, inc);

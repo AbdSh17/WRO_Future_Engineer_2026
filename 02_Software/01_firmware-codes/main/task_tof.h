@@ -13,9 +13,9 @@
 #define WALL_EMERGENCY_MM 80
 
 typedef struct {
-  uint8_t left_mm;
+  uint16_t left_mm;
   uint16_t front_mm;
-  uint8_t right_mm;
+  uint16_t right_mm;
   bool wall_left;
   bool wall_front;
   bool wall_right;

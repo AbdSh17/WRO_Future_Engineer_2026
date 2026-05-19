@@ -1,0 +1,90 @@
+Command: /home/abdsh/.espressif/python_env/idf6.1_py3.14_env/bin/python /home/abdsh/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/WRO_Future_Engineer_2026.elf /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/build/bootloader/bootloader.elf -m '/home/abdsh/.espressif/python_env/idf6.1_py3.14_env/bin/python' '/home/abdsh/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyUSB0'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x12 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-2938-g12f36a021f 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time May 18 2026 19:22:51[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0bcc8h ( 48328) map[0m
+[0;32mI (105) esp_image: segment 1: paddr=0001bcf0 vaddr=3ffb0000 size=02ac0h ( 10944) load[0m
+[0;32mI (110) esp_image: segment 2: paddr=0001e7b8 vaddr=40080000 size=01860h (  6240) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=145d4h ( 83412) map[0m
+[0;32mI (146) esp_image: segment 4: paddr=000345fc vaddr=40081860 size=0aac8h ( 43720) load[0m
+[0;32mI (164) esp_image: segment 5: paddr=0003f0cc vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (171) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (171) boot: Disabling RNG early entropy source...[0m
+[0;32mI (182) cpu_start: Multicore app[0m
+[0;32mI (191) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (191) cpu_start: Pro cpu start user code[0m
+[0;32mI (191) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (193) app_init: Application information:[0m
+[0;32mI (197) app_init: Project name:     WRO_Future_Engineer_2026[0m
+[0;32mI (202) app_init: App version:      a307361-dirty[0m
+[0;32mI (206) app_init: Compile time:     May 19 2026 01:51:03[0m
+[0;32mI (211) app_init: ELF file SHA256:  986aafe68...[0m
+[0;32mI (216) app_init: ESP-IDF:          v6.1-dev-2938-g12f36a021f[0m
+[0;32mI (221) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (225) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (229) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (233) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (239) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (244) heap_init: At 3FFB3798 len 0002C868 (178 KiB): DRAM[0m
+[0;32mI (250) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (255) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (260) heap_init: At 4008C328 len 00013CD8 (79 KiB): IRAM[0m
+[0;33mW (267) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (279) spi_flash: detected chip: generic[0m
+[0;32mI (282) spi_flash: flash io: dio[0m
+[0;33mW (285) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (298) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (308) main_task: Started on CPU0[0m
+[0;32mI (318) main_task: Calling app_main()[0m
+[0;32mI (1568) MAIN: BNO055 ready.[0m
+[0;32mI (1778) VL53L0X: Model ID=0xEE (expected usually 0xEE)[0m
+[0;32mI (2058) TEST: L=0  F=396  R=0 mm[0m
+[0;32mI (2198) TEST: L=0  F=419  R=0 mm[0m
+[0;32mI (2318) TEST: L=0  F=411  R=0 mm[0m
+[0;32mI (2438) TEST: L=0  F=414  R=0 mm[0m
+[0;32mI (2568) TEST: L=0  F=422  R=0 mm[0m
+[0;32mI (2688) TEST: L=0  F=440  R=0 mm[0m
+[0;32mI (2848) TEST: L=0  F=421  R=0 mm[0m
+[0;32mI (2968) TEST: L=0  F=440  R=0 mm[0m
+[0;32mI (3088) TEST: L=0  F=429  R=0 mm[0m
+[0;32mI (3218) TEST: L=0  F=435  R=0 mm[0m
+[0;32mI (3338) TEST: L=0  F=402  R=0 mm[0m
+[0;32mI (3498) TEST: L=0  F=415  R=0 mm[0m
+[0;32mI (3668) TEST: L=0  F=419  R=0 mm[0m
+[0;32mI (3778) TEST: L=0  F=416  R=0 mm[0m
+[0;32mI (3898) TEST: L=0  F=423  R=0 mm[0m
+[0;32mI (4048) TEST: L=0  F=431  R=0 mm[0m
+[0;32mI (4148) TEST: L=0  F=422  R=0 mm[0m
+[0;32mI (4268) TEST: L=0  F=414  R=0 mm[0m
+[0;32mI (4388) TEST: L=0  F=431  R=0 mm[0m
+[0;32mI (4508) TEST: L=0  F=427  R=0 mm[0m
+[0;32mI (4638) TEST: L=0  F=440  R=0 mm[0m
+[0;32mI (4778) TEST: L=0  F=426  R=0 mm[0m
+[0;32mI (4918) TEST: L=0  F=426  R=0 mm[0m
+[0;32mI (5038) TEST: L=0  F=431  R=0 mm[0m
+[0;32mI (5168) TEST: L=0  F=427  R=0 mm[0m
+[0;32mI (5288) TEST: L=0  F=422  R=0 mm[0m
+[0;32mI (5418) TEST: L=0  F=430  R=0 mm[0m
+[0;32mI (5528) TEST: L=0  F=430  R=0 mm[0m
+[0;32mI (5648) TEST: L=0  F=431  R=0 mm[0m
