@@ -54,7 +54,7 @@ Ackermann steering geometry is a **purely mechanical** solution. It was invented
 The principle: arrange the steering linkage so that lines drawn through each front wheel's steering axis converge at a single point on the rear axle. This causes the inner wheel to automatically rotate through a larger angle than the outer wheel during any turn, keeping both wheels pointed toward a common turn center with no scrub.
 
 <figure style="text-align: center;">
-  <img src="../materials/ackermann-geometry-lines.png" alt="Ackermann geometry construction lines" width="500"/>
+  <img src="../materials/ackermann-geometry-lines.jpg" alt="Ackermann geometry construction lines" width="500"/>
   <figcaption>Fig 2.2 — Lines through each kingpin and steering arm must meet at the center of the rear axle for perfect Ackermann</figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ The steering linkage consists of four key elements:
 | **Servo / rack** | Input that pushes or pulls the tie rod sideways |
 
 <figure style="text-align: center;">
-  <img src="../materials/ackermann-trapezoid.png" alt="Ackermann trapezoid linkage" width="500"/>
+  <img src="../materials/ackermann-trapezoid.gif" alt="Ackermann trapezoid linkage" width="500"/>
   <figcaption>Fig 3.1 — The steering arms and tie rod form a trapezoid shape when wheels are straight ahead</figcaption>
 </figure>
 
@@ -89,7 +89,7 @@ The steering linkage consists of four key elements:
 **In a turn:** The trapezoidal geometry automatically generates the correct difference in angle between the inner and outer wheels, for any steering input magnitude.
 
 <figure style="text-align: center;">
-  <img src="../materials/ackermann-turning.gif" alt="Ackermann steering turning animation" width="500"/>
+  <img src="../materials/ackermann-turning.svg" alt="Ackermann steering turning animation" width="500"/>
   <figcaption>Fig 3.2 — As the servo turns the steering, the inner wheel always rotates through a larger angle than the outer</figcaption>
 </figure>
 
@@ -159,7 +159,7 @@ Three fundamentally different geometries exist. The choice affects positional ac
 Both front wheels turn through the same angle regardless of which is inner or outer.
 
 <figure style="text-align: center;">
-  <img src="../materials/parallel-steering.png" alt="Parallel steering diagram" width="500"/>
+  <img src="../materials/parallel-steering.webp" alt="Parallel steering diagram" width="500"/>
   <figcaption>Fig 5.1 — Parallel steering: both wheels at same angle, causing inner wheel scrub</figcaption>
 </figure>
 
@@ -177,7 +177,7 @@ Both front wheels turn through the same angle regardless of which is inner or ou
 Inner wheel turns more than outer wheel, satisfying the Ackermann condition exactly.
 
 <figure style="text-align: center;">
-  <img src="../materials/pure-ackermann.png" alt="Pure Ackermann diagram" width="500"/>
+  <img src="../materials/ackermann-diagram.gif" alt="Pure Ackermann diagram" width="500"/>
   <figcaption>Fig 5.2 — Pure Ackermann: all four wheels point to a common turn center</figcaption>
 </figure>
 
