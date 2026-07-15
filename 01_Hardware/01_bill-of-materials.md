@@ -18,8 +18,8 @@ Final component list for the WRO 2026 Future Engineers vehicle. Each entry links
 ## 1. Compute
 
 <p align="center">
-  <img src="../materials/raspberry-pi-5.jpg" alt="Raspberry Pi 5" width="300"/>
-  <img src="../materials/esp32-devkitc-32d.jpg" alt="ESP32 DevKitC 32D" width="300"/>
+  <img src="materials/raspberry-pi-5.jpg" alt="Raspberry Pi 5" width="300"/>
+  <img src="materials/esp32-devkitc-32d.jpg" alt="ESP32 DevKitC 32D" width="300"/>
 </p>
 
 | Component | Role |
@@ -34,8 +34,8 @@ Split chosen to separate real-time control (ESP32) from vision workloads (Pi 5),
 ## 2. Sensors
 
 <p align="center">
-  <img src="../materials/bno055-imu.jpg" alt="BNO055 IMU" width="300"/>
-  <img src="../materials/vl53l0x-tof.jpg" alt="VL53L0X ToF" width="300"/>
+  <img src="materials/bno055-imu.jpg" alt="BNO055 IMU" width="300"/>
+  <img src="materials/vl53l0x-tof.jpg" alt="VL53L0X ToF" width="300"/>
 </p>
 
 | Component | Qty | Role |
@@ -43,28 +43,28 @@ Split chosen to separate real-time control (ESP32) from vision workloads (Pi 5),
 | **BNO055** | 1 | Absolute heading (yaw) for turn control and heading hold |
 | **VL53L0X** | 3 | Front, left, right distance — corner and wall detection |
 
-See [`01_motor-selection-criteria.md`](../03_components_selection/01_motor-selection-criteria.md) for related speed/timing requirements that drove sensor update-rate needs.
+See [`01_motor-selection-criteria.md`](../00_Research/03_components_selection/01_motor-selection-criteria.md) for related speed/timing requirements that drove sensor update-rate needs.
 
 ---
 
 ## 3. Actuators
 
 <p align="center">
-  <img src="../materials/jgb37-520-motor.png" alt="JGB37-520 DC motor" width="300"/>
-  <img src="../materials/mg996r-servo.jpg" alt="MG996R servo" width="300"/>
+  <img src="materials/jgb37-520-motor.png" alt="JGB37-520 DC motor" width="300"/>
+  <img src="materials/mg996r-servo.jpg" alt="MG996R servo" width="300"/>
 </p>
 
 | Component | Role | Requirement met |
 |---|---|---|
-| **JGB37-520** (12V DC gear motor) | Rear drive | Stall torque ≥ 3.5 kg·cm — see [`01_motor-selection-criteria.md`](../03_components_selection/01_motor-selection-criteria.md) |
-| **MG996R** servo | Front Ackermann steering | Stall torque ≥ 9.3 kg·cm — see [`02_servo-torque-requirement.md`](../03_components_selection/02_servo-torque-requirement.md) |
+| **JGB37-520** (12V DC gear motor) | Rear drive | Stall torque ≥ 3.5 kg·cm — see [`01_motor-selection-criteria.md`](../00_Research/03_components_selection/01_motor-selection-criteria.md) |
+| **MG996R** servo | Front Ackermann steering | Stall torque ≥ 9.3 kg·cm — see [`02_servo-torque-requirement.md`](../00_Research/03_components_selection/02_servo-torque-requirement.md) |
 
 ---
 
 ## 4. Motor Driver
 
 <p align="center">
-  <img src="../materials/tb6612fng-driver.webp" alt="TB6612FNG driver" width="300"/>
+  <img src="materials/tb6612fng-driver.webp" alt="TB6612FNG driver" width="300"/>
 </p>
 
 | Component | Role |
@@ -78,8 +78,8 @@ Single motor uses one channel; the second channel on the chip is unused.
 ## 5. Power
 
 <p align="center">
-  <img src="../materials/li-ion-3s-battery.jpg" alt="3S Li-Ion battery" width="300"/>
-  <img src="../materials/mp1584en-buck.jpg" alt="MP1584EN buck converter" width="300"/>
+  <img src="materials/li-ion-3s-battery.jpg" alt="3S Li-Ion battery" width="300"/>
+  <img src="materials/mp1584en-buck.jpg" alt="MP1584EN buck converter" width="300"/>
 </p>
 
 | Component | Qty | Role |
@@ -88,7 +88,7 @@ Single motor uses one channel; the second channel on the chip is unused.
 | **MP1584EN buck converter** | 2 | One 5V rail (logic), one 6V rail (servo, isolated) |
 | **Hall-effect encoder** | 1 | Wheel speed / distance feedback, mounted on motor shaft |
 
-Dual regulator design isolates the servo from the logic rail so servo stall current spikes cannot brown out the ESP32. See [`03_passive-components.md`](../03_components_selection/03_passive-components.md) for capacitor sizing on each rail.
+Dual regulator design isolates the servo from the logic rail so servo stall current spikes cannot brown out the ESP32. See [`03_passive-components.md`](../00_Research/03_components_selection/03_passive-components.md) for capacitor sizing on each rail.
 
 ---
 
