@@ -49,7 +49,7 @@ private:
   gpio_num_t _shdn = GPIO_NUM_NC;
 
   // Filter state (N=5)
-  static constexpr int FILTER_N = 3;
+  static constexpr int FILTER_N = 5;
   uint16_t _buf[FILTER_N] = {0};
   int _idx = 0;
   int _count = 0;

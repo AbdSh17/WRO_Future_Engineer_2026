@@ -1,0 +1,2 @@
+Command: cmake -G Ninja -B /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main/build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=/home/abdsh/.espressif/python_env/idf6.1_py3.14_env/bin/python -DESP_PLATFORM=1 -DCCACHE_ENABLE=False /home/abdsh/me/EmbeddedSystems/WRO_Future_Engineer_2026/02_Software/01_firmware-codes/main
+-- The C compiler identification is GNU 15.2.1

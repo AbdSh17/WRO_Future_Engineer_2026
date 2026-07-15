@@ -1,4 +1,3 @@
-
 #include "task_algorithm.h"
 
 #include <math.h>
@@ -11,6 +10,8 @@
 #include "task_imu.h"
 #include "task_tof.h"
 
+#include "wifi_telemetry.h"
+
 extern "C" {
 #include "encoder.h"
 }
@@ -18,8 +19,9 @@ extern "C" {
 // Tuning constants
 // ---------------------------------------------------------------------------
 #define OPEN_WALL_MM                                                           \
-  3000 // side distance above this = wall gone (opening detected)
-#define DIR_DETECT_COUNT 3 // consecutive readings required to confirm direction
+  1000 // side distance above this = wall gone (opening detected)
+
+#define DIR_DETECT_COUNT 1 // consecutive readings required to confirm direction
 #define TURN_SETTLE_DEG 5.0f // heading error threshold to consider turn done
 #define TURN_SETTLE_COUNT                                                      \
   6 // consecutive cycles within threshold to confirm settled
@@ -90,7 +92,10 @@ static void algorithm_task(void *arg) {
 
     tof_state_t tof = {};
     tof_read(&tof);
-
+    char buf[64];
+    snprintf(buf, sizeof(buf), "L=%u F=%u R=%u\n", tof.left_mm, tof.front_mm,
+             tof.right_mm);
+    // wifi_telemetry_send(buf);
     // --- state machine -----------------------------------------------
     switch (s_state) {
 
@@ -109,7 +114,7 @@ static void algorithm_task(void *arg) {
       s_settle_count = 0;
       encoder_reset();
 
-      move_forward(100);
+      move_forward(30);
       ctrl_request_forward(s_heading);
       s_first_segment_mm = 0.0f;
       s_first_segment_recorded = false;
@@ -121,6 +126,7 @@ static void algorithm_task(void *arg) {
       // Emergency: front wall before direction is known
       if (tof.front_emergency_wall) {
         ctrl_stop();
+        stop();
         s_state = STATE_IDLE;
         break;
       }
@@ -160,7 +166,7 @@ static void algorithm_task(void *arg) {
         bool side_open = (s_turn_dir_deg > 0) ? (tof.right_mm > OPEN_WALL_MM)
                                               : (tof.left_mm > OPEN_WALL_MM);
 
-        if (side_open) {
+        if (side_open || tof.front_warning_wall) {
           if (!s_first_segment_recorded) {
             s_first_segment_mm = encoder_get_distance_mm();
             s_first_segment_recorded = true;

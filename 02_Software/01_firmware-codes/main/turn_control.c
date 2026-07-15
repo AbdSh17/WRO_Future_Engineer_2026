@@ -5,7 +5,7 @@
 
 void turn_init(turn_ctrl_t *t) {
   t->target_deg = 0.0f;
-  t->tol_deg = 7.0f;
+  t->tol_deg = 20.0f;
   t->stable_need = 6;
   t->stable_count = 0;
   t->max_steer_angle = 30.0f; // tune to your servo/chassis limit

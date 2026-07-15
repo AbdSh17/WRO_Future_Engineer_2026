@@ -107,7 +107,6 @@ static void control_task(void *arg) {
         forward_start(s_fwd, yaw_deg);
         servo_center();
         g_turn_done.store(true);
-        ESP_LOGI(TAG, "turn done, holding yaw=%.1f", yaw_deg);
       }
     }
 

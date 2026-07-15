@@ -3,7 +3,7 @@
 #include <stdint.h>
 
 // ── Tune these to your hardware ──────────────────────────────────────────────
-#define ENCODER_PIN GPIO_NUM_25
+#define ENCODER_PIN GPIO_NUM_21
 #define ENCODER_CPR 11 // Counts per motor revolution (hall effect)
 #define GEAR_RATIO 30.0f
 #define WHEEL_DIAMETER_MM 67.0f

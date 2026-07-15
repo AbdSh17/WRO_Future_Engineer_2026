@@ -1,4 +1,5 @@
 #include "ToF.h"
+
 #include "esp_log.h"
 #include "forward_control.h"
 #include "freertos/FreeRTOS.h"
@@ -9,6 +10,7 @@
 #include "task_algorithm.h"
 #include "task_control.h"
 #include "turn_control.h"
+#include "wifi_telemetry.h"
 #include <i2c_bus.h>
 #include <task_imu.h>
 #include <task_tof.h>
@@ -71,6 +73,8 @@ static void init_mutexes(void) {
 
 extern "C" void app_main(void) {
 
+  // wifi_telemetry_init();
+
   // ====== I2C =======
   esp_err_t err = i2c_setup();
   if (err != ESP_OK) {
@@ -115,22 +119,22 @@ extern "C" void app_main(void) {
   vTaskDelay(pdMS_TO_TICKS(100));
 
   control_task_start(&g_turn, &g_fwd, yaw_mutex, tof_mutex);
-
   algorithm_task_start();
-
+  //
+  // move_forward(100);
   // ============================
   int i = 0;
   bool flag = false;
 
   while (true) {
-    vTaskDelay(pdMS_TO_TICKS(1000));
+    vTaskDelay(pdMS_TO_TICKS(50));
     //
-    // float yaw_deg = 0.0f;
-    // bool yaw_ok = false;
-    // int64_t yaw_age = 0;
-    // yaw_read(&yaw_deg, &yaw_ok, &yaw_age);
+    float yaw_deg = 0.0f;
+    bool yaw_ok = false;
+    int64_t yaw_age = 0;
+    yaw_read(&yaw_deg, &yaw_ok, &yaw_age);
     //
-    // // ESP_LOGI("IMU", "Yaw: %.2f", yaw_deg);
+    ESP_LOGI("IMU", "Yaw: %.2f", yaw_deg);
     //
     // tof_state_t tof;
     // if (tof_read(&tof) && tof.valid) {

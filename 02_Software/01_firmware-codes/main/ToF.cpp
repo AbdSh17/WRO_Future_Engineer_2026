@@ -17,9 +17,9 @@ static constexpr uint8_t TOF_LEFT_ADDR = 0x31;
 static constexpr uint8_t TOF_FRONT_ADDR = 0x32;
 
 // -------------------- XSHUT pins (change to your wiring) --------------------
-#define TOF_RIGHT_SHDN GPIO_NUM_16
-#define TOF_FRONT_SHDN GPIO_NUM_26 // 25 or 26
-#define TOF_LEFT_SHDN GPIO_NUM_15
+#define TOF_RIGHT_SHDN GPIO_NUM_26
+#define TOF_FRONT_SHDN GPIO_NUM_13 // 25 or 26
+#define TOF_LEFT_SHDN GPIO_NUM_25
 
 static inline TickType_t ms_to_ticks(uint32_t ms) { return pdMS_TO_TICKS(ms); }
 
@@ -72,27 +72,27 @@ void ToF::all_tofs_on() {
 // ---------------------------------------------------------------------------
 
 esp_err_t ToF::init_side_tofs(VL53L0X &right, VL53L0X &left) {
-
-  // We assume all sensors are currently OFF.
-
-  // Attach shutdown pins (so each class can toggle its own XSHUT)
   right.shdnAttach(TOF_RIGHT_SHDN);
   left.shdnAttach(TOF_LEFT_SHDN);
 
+  ESP_LOGI("TOF", "Right shdnUp");
   right.shdnUp(20);
+  ESP_LOGI("TOF", "Right begin");
   ESP_ERROR_CHECK(right.begin(true, true, false));
+  ESP_LOGI("TOF", "Right setAddress");
   ESP_ERROR_CHECK(right.setAddress(TOF_RIGHT_ADDR));
   vTaskDelay(ms_to_ticks(5));
 
+  ESP_LOGI("TOF", "Left shdnUp");
   left.shdnUp(20);
+  ESP_LOGI("TOF", "Left begin");
   ESP_ERROR_CHECK(left.begin(true, true, false));
+  ESP_LOGI("TOF", "Left setAddress");
   ESP_ERROR_CHECK(left.setAddress(TOF_LEFT_ADDR));
   vTaskDelay(ms_to_ticks(5));
 
-  //
   return ESP_OK;
 }
-
 esp_err_t ToF::init_front_tof(VL53L0X &front) {
   // Front must be powered up AFTER the side sensors are no longer at 0x29,
 
@@ -120,14 +120,12 @@ esp_err_t ToF::init_front_tof(VL53L0X &front) {
 // Public setup
 // ---------------------------------------------------------------------------
 esp_err_t ToF::tof_setup() {
-  // Hard reset everything first
+  ESP_LOGI("TOF", "tof_setup start");
   all_init_tofs_off();
-
-  // Side sensors first: move them off the default address
+  ESP_LOGI("TOF", "all_init_tofs_off done");
   ESP_ERROR_CHECK(init_side_tofs(rightTof, leftTof));
-
-  // Front sensor last: can safely stay at 0x29
+  ESP_LOGI("TOF", "side tofs done");
   ESP_ERROR_CHECK(init_front_tof(frontTof));
-
+  ESP_LOGI("TOF", "front tof done");
   return ESP_OK;
 }

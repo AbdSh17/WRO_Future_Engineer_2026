@@ -9,7 +9,7 @@
 
 #define WALL_LEFT_MM 150
 #define WALL_FRONT_MM 200
-#define WALL_WARNING_MM 150
+#define WALL_WARNING_MM 1000
 #define WALL_EMERGENCY_MM 80
 
 typedef struct {
