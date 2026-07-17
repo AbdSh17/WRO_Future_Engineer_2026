@@ -279,7 +279,7 @@ The full parts list, quantities, and every link back to its underlying calculati
 ### 4.4 Power Architecture
 
 <p align="center">
-  <img src="06_Attachments/power_system_architecture_drawio.png" alt="Power system architecture" width="700"/>
+  <img src="06_Attachments/power_system_architecture.drawio.png" alt="Power system architecture" width="700"/>
 </p>
 <p align="center"><sub><b>The full power rail layout, battery to load</b></sub></p>
 
