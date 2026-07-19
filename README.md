@@ -314,7 +314,6 @@ This is the full schematic — every sensor, driver, and regulator wired exactly
 Every pin assignment below is pulled directly from source code, not assumed — full pin-by-pin detail lives in [`01_Hardware/03_wiring.md`](01_Hardware/03_wiring.md).
 
 ---
-
 ## 5. Software
 
 The robot's software is split the same way the hardware is: the **ESP32** makes every decision that has to happen on a strict clock — sensing, control, steering — and the **Raspberry Pi 5** handles everything that's too heavy to run at that pace, mainly camera vision. The two talk to each other over a single UART link, and neither one waits around for the other.
@@ -333,10 +332,14 @@ Three layers, each with one job, and none of them reaching into the others:
 
 This separation is why a slow camera frame can never cause a jerky steering correction, and why a bug in the decision logic can't accidentally leave the motor driver in a bad state — each layer can only affect the next one through a narrow, well-defined interface.
 
-<p align="center">
-  <img src="06_Attachments/freertos_task_architecture.svg" alt="FreeRTOS task architecture" width="800"/>
-</p>
-<p align="center"><sub><b>Five tasks, one shared-state layer, one direction of data flow</b></sub></p>
+<table align="center">
+<tr>
+<td align="center" width="820">
+<img src="06_Attachments/freertos_task_architecture.svg" width="800"/><br/>
+<sub><b>Five tasks, one shared-state layer, one direction of data flow</b></sub>
+</td>
+</tr>
+</table>
 
 ---
 
@@ -363,10 +366,14 @@ Two details worth calling out:
 
 It's one thing to know a sensor exists — it's another to trace exactly what happens to that reading between the moment it leaves the hardware and the moment it changes what the car does. This diagram follows all four sensing pipelines end to end: physical sensor → how it's processed → what gets published → what decision it actually feeds.
 
-<p align="center">
-  <img src="06_Attachments/sensor_data_flow.svg" alt="Sensor data flow diagram" width="900"/>
-</p>
-<p align="center"><sub><b>From raw signal to driving decision, four independent pipelines</b></sub></p>
+<table align="center">
+<tr>
+<td align="center" width="670">
+<img src="06_Attachments/sensor_data_flow.svg" width="650"/><br/>
+<sub><b>From raw signal to driving decision, four independent pipelines</b></sub>
+</td>
+</tr>
+</table>
 
 The one rule that holds across all four: **every published value carries an age.** `algorithm_task` never trusts a stale reading — if the Pi link goes quiet for more than 500 ms, for example, the algorithm falls back to holding position rather than steering based on data that might not reflect the real world anymore. That single check is what keeps a dropped camera frame or a momentary UART hiccup from turning into a wrong turn.
 
@@ -376,10 +383,14 @@ The one rule that holds across all four: **every published value carries an age.
 
 The Open Challenge track has no traffic signs and no pillars — the whole job is staying inside a corridor that changes width every section and finding the corners before the walls do. Here's how the state machine handles that, start to finish.
 
-<p align="center">
-  <img src="06_Attachments/algorithm_flowchart_open_challenge.svg" alt="Open Challenge algorithm flowchart" width="850"/>
-</p>
-<p align="center"><sub><b>The full Open Challenge state machine, as implemented in <code>task_algorithm.cpp</code></b></sub></p>
+<table align="center">
+<tr>
+<td align="center" width="570">
+<img src="06_Attachments/algorithm_flowchart_open_challenge.svg" width="550" /><br/>
+<sub><b>The full Open Challenge state machine, as implemented in <code>task_algorithm.cpp</code></b></sub>
+</td>
+</tr>
+</table>
 
 **The short version:**
 
@@ -410,10 +421,14 @@ This section, along with its own flowchart (`algorithm_flowchart_obstacle_challe
 
 ### 5.6 Telemetry & Debug Tool — Baggy
 
-<p align="center">
-  <img src="06_Attachments/baggy_dashboard_screenshot.png" alt="Baggy telemetry dashboard" width="700"/>
-</p>
-<p align="center"><sub><b>Baggy — our real-time telemetry dashboard</b></sub></p>
+<table align="center">
+<tr>
+<td align="center" width="720">
+<img src="06_Attachments/baggy_dashboard_screenshot.png" width="700"/><br/>
+<sub><b>Baggy — our real-time telemetry dashboard</b></sub>
+</td>
+</tr>
+</table>
 
 *[Screenshot and full write-up pending — Baggy is still under active development.]*
 
