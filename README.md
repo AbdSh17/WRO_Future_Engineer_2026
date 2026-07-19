@@ -317,7 +317,109 @@ Every pin assignment below is pulled directly from source code, not assumed — 
 
 ## 5. Software
 
-*This section is being actively developed. It will include the FreeRTOS task architecture diagram, the algorithm state machine flowchart, and use-case scenarios for both the Open and Obstacle Challenges.*
+The robot's software is split the same way the hardware is: the **ESP32** makes every decision that has to happen on a strict clock — sensing, control, steering — and the **Raspberry Pi 5** handles everything that's too heavy to run at that pace, mainly camera vision. The two talk to each other over a single UART link, and neither one waits around for the other.
+
+This section covers how that split is organized in code: the tasks running on the ESP32, where sensor data actually comes from, how the Open Challenge driving logic makes decisions, and the tool we built to watch all of it happen in real time.
+
+---
+
+### 5.1 Architecture Overview
+
+Three layers, each with one job, and none of them reaching into the others:
+
+- **Sensing layer** — dedicated tasks that only read hardware and publish the result. They never make decisions.
+- **Control layer** — `control_task`, the highest-priority task on the board. It only executes PID controllers (heading hold, turn) and writes to the motor and servo. It never decides *where* to go, only *how* to get there.
+- **Decision layer** — `algorithm_task`, the state machine. It reads what the sensing layer published, decides what should happen next, and tells the control layer through a small, explicit request API (`ctrl_request_turn()`, `ctrl_request_forward()`). It never touches a GPIO directly.
+
+This separation is why a slow camera frame can never cause a jerky steering correction, and why a bug in the decision logic can't accidentally leave the motor driver in a bad state — each layer can only affect the next one through a narrow, well-defined interface.
+
+<p align="center">
+  <img src="06_Attachments/freertos_task_architecture.svg" alt="FreeRTOS task architecture" width="800"/>
+</p>
+<p align="center"><sub><b>Five tasks, one shared-state layer, one direction of data flow</b></sub></p>
+
+---
+
+### 5.2 FreeRTOS Task Architecture
+
+Every sensor lives in its own task, running at whatever rate that sensor actually needs — the IMU is read every 10 ms because heading drift compounds fast, while the Pi link is read every 20 ms because that's already faster than the camera can usefully update. Each task publishes its result into a small mutex-protected struct, and nothing about the other tasks needs to know or care how that struct got filled in.
+
+| Task | Period | Priority | Job |
+|---|---|---|---|
+| `control_task` | 50 ms | 6 (highest) | Runs the active PID controller, drives the servo and motor |
+| `imu_task` | 10 ms | 5 | Reads the BNO055, publishes yaw |
+| `tof_task` | 20 ms | 5 | Reads the front VL53L0X, publishes distance + wall flags |
+| `rpi_task` | 20 ms | 5 | Parses UART lines from the Pi, publishes nav + obstacle data |
+| `algorithm_task` | 50 ms | 4 | Reads everything above, runs the state machine |
+
+Two details worth calling out:
+
+- **`control_task` outranks `algorithm_task` on purpose.** If the board is ever under load, the thing that has to stay smooth is the PID loop, not the decision logic — a state machine that runs a few milliseconds late is invisible to the robot, a jittery servo isn't.
+- **The encoder doesn't get a task at all.** It's a single hall-effect sensor driven entirely by an ISR (`IRAM_ATTR`, `volatile` tick counter), so there's no polling loop and no mutex needed — `encoder_get_distance_mm()` just reads the counter directly. One less task means one less thing that can stall.
+
+---
+
+### 5.3 Sensor Data Flow
+
+It's one thing to know a sensor exists — it's another to trace exactly what happens to that reading between the moment it leaves the hardware and the moment it changes what the car does. This diagram follows all four sensing pipelines end to end: physical sensor → how it's processed → what gets published → what decision it actually feeds.
+
+<p align="center">
+  <img src="06_Attachments/sensor_data_flow.svg" alt="Sensor data flow diagram" width="900"/>
+</p>
+<p align="center"><sub><b>From raw signal to driving decision, four independent pipelines</b></sub></p>
+
+The one rule that holds across all four: **every published value carries an age.** `algorithm_task` never trusts a stale reading — if the Pi link goes quiet for more than 500 ms, for example, the algorithm falls back to holding position rather than steering based on data that might not reflect the real world anymore. That single check is what keeps a dropped camera frame or a momentary UART hiccup from turning into a wrong turn.
+
+---
+
+### 5.4 Algorithm — Open Challenge
+
+The Open Challenge track has no traffic signs and no pillars — the whole job is staying inside a corridor that changes width every section and finding the corners before the walls do. Here's how the state machine handles that, start to finish.
+
+<p align="center">
+  <img src="06_Attachments/algorithm_flowchart_open_challenge.svg" alt="Open Challenge algorithm flowchart" width="850"/>
+</p>
+<p align="center"><sub><b>The full Open Challenge state machine, as implemented in <code>task_algorithm.cpp</code></b></sub></p>
+
+**The short version:**
+
+1. **`STATE_IDLE`** — the robot resets everything (encoder, turn count, lap count) and starts driving forward, holding heading 0°.
+2. **`STATE_DETECT_DIR`** — since the starting position and track direction are randomized by die roll, the robot doesn't know yet whether it's turning clockwise or counter-clockwise. It drives straight and watches both sides through the Pi camera until one side's wall-presence score drops below the open threshold for three consecutive frames — that's the direction it commits to for the rest of the run.
+3. **`STATE_FORWARD`** — the main driving state. The robot holds heading with the IMU-based PID and watches the side it committed to (plus the front ToF as a backup) for the next corner.
+4. **`STATE_TURNING`** — once a corner is confirmed, the robot hands off to `turn_control`, which executes a clean 90° turn using IMU feedback, independent of the forward heading-hold controller.
+5. Back to **`STATE_FORWARD`** for the next straight, repeating until three laps and twelve turns are complete.
+6. **`STATE_FINISH`** — the final stretch back to the starting section, sized using the length of the very first straight the robot drove (recorded once, on lap one).
+
+A front-wall emergency check runs in every state that's actively driving — if the ToF ever reports a wall closer than the emergency threshold, the robot stops immediately and falls back to `STATE_IDLE`, regardless of what else is happening.
+
+**Why side ToF sensors aren't in this diagram:** corner detection used to rely on the left/right VL53L0X sensors directly. That's been replaced by the Pi camera's wall-presence score (`nav_left` / `nav_right`), which gives a wider, more forward-looking view of the corridor than a single-point distance reading ever could. The front ToF is kept purely as a safety net for emergency stops.
+
+*[Camera captures showing the wall-presence detection in action will go here once we have clean footage from the track.]*
+
+---
+
+### 5.5 Algorithm — Obstacle Challenge
+
+*Not implemented yet — `task_algorithm.cpp` currently only contains the Open Challenge state machine shown above.*
+
+The plan: the Pi already reports pillar color, distance, and lateral offset (`obst_color`, `obst_distance_mm`, `obst_lateral_mm`) over the same UART link used for wall-following. The ESP32 side will use that to bias the heading-hold target left or right by the correct margin — pass red on the right, green on the left — timed against the encoder rather than reacting frame-by-frame, so a single noisy detection can't cause a swerve.
+
+This section, along with its own flowchart (`algorithm_flowchart_obstacle_challenge.svg`), will be filled in once that logic is written and tested.
+
+---
+
+### 5.6 Telemetry & Debug Tool — Baggy
+
+<p align="center">
+  <img src="06_Attachments/baggy_dashboard_screenshot.png" alt="Baggy telemetry dashboard" width="700"/>
+</p>
+<p align="center"><sub><b>Baggy — our real-time telemetry dashboard</b></sub></p>
+
+*[Screenshot and full write-up pending — Baggy is still under active development.]*
+
+Debugging a robot that's driving itself, at speed, on a track you can't see from your laptop, is genuinely hard without visibility into what it's thinking. **Baggy** is our answer to that: the ESP32 streams live sensor and state data over Wi-Fi UDP — yaw, ToF readings, encoder distance, the current state machine state, lap and turn counts — and Baggy renders it in real time so we can watch a run unfold from the sideline instead of guessing after the fact from serial logs.
+
+*[More detail on Baggy's design and how it's used during test runs will go here once the tool is further along.]*
 
 ---
 
