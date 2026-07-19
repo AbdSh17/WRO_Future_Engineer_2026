@@ -419,7 +419,100 @@ This section, along with its own flowchart (`algorithm_flowchart_obstacle_challe
 
 ---
 
-### 5.6 Telemetry & Debug Tool — Baggy
+### 5.6 PID Control & Tuning
+
+Both the turn and the heading-hold controllers described above run on the same underlying idea: PID control. This section explains what that means, what our actual gains are, and the process we followed to get there.
+
+<table align="center">
+<tr>
+<td align="center" width="720">
+<img src="06_Attachments/PID_intro.png" width="700"/><br/>
+<sub><b>The closed loop: target heading in, yaw out, error drives the correction</b></sub>
+</td>
+</tr>
+</table>
+
+**What PID actually does**
+
+A PID controller looks at the gap between where you want to be (the target) and where you actually are (the measurement), and turns that gap into a correction — in our case, a servo angle. It does this with three terms added together:
+
+- **P (Proportional)** — reacts to the error *right now*. A bigger gap means a bigger correction. On its own, P gets you close to the target fast, but it tends to overshoot and settle into a gentle oscillation around it, since it has no sense of how fast the error is changing or how long it's been wrong.
+- **I (Integral)** — reacts to the error *accumulated over time*. If a small error keeps hanging around instead of disappearing, the integral term keeps growing until it forces the correction large enough to close that gap for good. This is what cancels out steady, persistent offsets — the kind caused by things like mechanical friction, a servo that isn't perfectly centered, or a slight weight imbalance.
+- **D (Derivative)** — reacts to *how fast the error is changing*. It acts like a brake: as the system approaches the target quickly, D pulls the correction back down before it can overshoot, which is what settles the oscillation P leaves behind.
+
+Put together, P gets you there, D stops you from flying past it, and I makes sure you don't quietly drift off and stay off.
+
+---
+
+**Our two controllers**
+
+We run two separate PID loops, both steering-output, both sharing the same `pid_update()` function — but tuned very differently, because they're solving different problems:
+
+| | `turn_control` | `forward_control` |
+|---|---|---|
+| **Job** | Execute a fast, accurate 90° turn | Hold a straight heading, correcting small drift |
+| **Kp** | 0.8 | 2.5 |
+| **Ki** | 0.075 | 0.15 |
+| **Kd** | 0.055 | 0.02 |
+| **Output clamp** | ±30° (`max_steer_angle`) | ±45° (`max_correction`) |
+| **Settle condition** | within ±20° for 6 consecutive cycles | continuous, no settle check |
+
+The difference in gains isn't arbitrary — it comes directly from what each controller is actually correcting:
+
+- `turn_control` is chasing a large step change (up to 90°), so a lower Kp is enough to move it — pushing Kp higher on a target that big risks a much harder overshoot. Its settle logic (`stable_count` / `stable_need`) exists because a turn has a real finish line: the robot needs to *know* when it's done, not just keep nudging forever.
+- `forward_control` is only ever correcting small drift around a heading it's already close to, so it needs a sharper Kp to react to tiny errors quickly — but a smaller Kd, since there's no large overshoot to brake for, and a tighter output clamp, since a heading-hold correction should never look like a turn.
+
+---
+
+**How we tuned them**
+
+We didn't calculate these gains from a model — we tuned them by hand, on the assembled robot, in a fixed order:
+
+<table align="center">
+<tr>
+<td align="center" width="1370">
+<img src="06_Attachments/pid_tuning_process.svg" width="1350"/><br/>
+<sub><b>The order we followed for both controllers</b></sub>
+</td>
+</tr>
+</table>
+
+1. **Zero D and I.** Start with a pure proportional controller so every effect we see is coming from one term.
+2. **Raise P** until the response gets close to the target quickly but starts to show a small oscillation. That oscillation is the signal to stop — it means P is doing its job and it's time to bring in the next term.
+3. **Raise D** just enough to damp that oscillation out. Too little and it still wobbles; too much and the response gets sluggish and lags behind the correction it needs to make.
+4. **Raise I** last, only enough to guarantee the system always closes the remaining gap and returns to zero error, without introducing a slow new oscillation of its own (integral windup).
+
+The chart below shows what that process actually looks like, simulated with our real `turn_control` gains at each stage against a simplified plant with a constant disturbance (standing in for real friction and servo bias):
+
+<table align="center">
+<tr>
+<td align="center" width="1320">
+<img src="06_Attachments/pid_tuning_response.svg" width="1300"/><br/>
+<sub><b>Step response at each tuning stage — same gains, added one term at a time</b></sub>
+</td>
+</tr>
+</table>
+
+With P alone, the response overshoots the 90° target and oscillates before settling on an offset well short of it. Adding D kills the oscillation almost immediately — but that steady offset doesn't move, because D only reacts to *change*, and once the system stops moving, D has nothing left to correct. Only once I is added does the controller keep pushing until that last bit of error is gone.
+
+**Same process, `forward_control`**
+
+`forward_control` goes through the exact same four steps, but the job it's tuned for is different — instead of executing one large 90° turn, it's constantly nudging the heading back after a few degrees of drift. The chart below simulates that: an 8° correction, using the real `forward_control` gains at each stage.
+
+<table align="center">
+<tr>
+<td align="center" width="1320">
+<img src="06_Attachments/pid_tuning_response_forward.svg" width="1300"/><br/>
+<sub><b>Step response at each tuning stage — forward_control, corrected for a small drift instead of a full turn</b></sub>
+</td>
+</tr>
+</table>
+
+The shape is the same story, just compressed: a much higher Kp (2.5 vs 0.8) means P alone reacts and overshoots fast, within about half a second instead of over a second. What's different is how little D has to do — Kd is only 0.02, a fraction of `turn_control`'s 0.055, because there's far less momentum to brake for when the error is a few degrees instead of ninety. Ki is higher (0.15 vs 0.075) since drift correction has to keep catching up continuously, not just once at the end of a maneuver. The result is a controller tuned to be quick and light-handed, exactly what holding a straight line while driving needs — a controller tuned for a big turn would feel twitchy here, and a controller tuned for gentle drift would feel sluggish trying to execute a 90° turn.
+
+---
+
+### 5.7 Telemetry & Debug Tool — Baggy
 
 <table align="center">
 <tr>
