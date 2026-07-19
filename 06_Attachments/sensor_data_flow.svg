@@ -1,0 +1,179 @@
+<svg viewBox="0 0 1450 1150" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="1450" height="1150" fill="#f8fafc"/>
+<defs>
+  <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+    <path d="M0,0 L8,3 L0,6 z" fill="#64748b"/>
+  </marker>
+  <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-color="#0f172a" flood-opacity="0.18"/>
+  </filter>
+</defs>
+
+<text x="725.0" y="42.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#0f172a">
+<tspan x="725.0" dy="0.0">SENSOR DATA FLOW</tspan>
+</text>
+<text x="725.0" y="68.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#64748b">
+<tspan x="725.0" dy="0.0">From physical signal to driving decision — four independent pipelines</tspan>
+</text>
+<text x="175" y="108.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#475569">
+<tspan x="175" dy="0.0">PHYSICAL SENSOR</tspan>
+</text>
+<line x1="15" y1="118" x2="335" y2="118" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="480" y="108.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#475569">
+<tspan x="480" dy="0.0">PROCESSING</tspan>
+</text>
+<line x1="320" y1="118" x2="640" y2="118" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="800" y="108.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#475569">
+<tspan x="800" dy="0.0">PUBLISHED STATE</tspan>
+</text>
+<line x1="640" y1="118" x2="960" y2="118" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="1180" y="108.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#475569">
+<tspan x="1180" dy="0.0">USED FOR</tspan>
+</text>
+<line x1="1020" y1="118" x2="1400" y2="118" stroke="#cbd5e1" stroke-width="1.4"/>
+<rect x="45.0" y="180.0" width="260" height="100" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="175" y="204.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#5b21b6">
+<tspan x="175" dy="0.0">BNO055 IMU</tspan>
+</text>
+<text x="175" y="234.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="175" dy="0.0">I2C_NUM_1, 9-axis fusion</tspan>
+<tspan x="175" dy="15.5">absolute orientation sensor</tspan>
+</text>
+<rect x="350.0" y="180.0" width="260" height="100" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="480" y="204.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#5b21b6">
+<tspan x="480" dy="0.0">imu_task (10 ms)</tspan>
+</text>
+<text x="480" y="234.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="480" dy="0.0">Reads quaternion, converts</tspan>
+<tspan x="480" dy="15.5">to yaw, applies zero-offset</tspan>
+</text>
+<rect x="670.0" y="180.0" width="260" height="100" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="800" y="204.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#5b21b6">
+<tspan x="800" dy="0.0">yaw_mutex → yaw_deg</tspan>
+</text>
+<text x="800" y="234.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="800" dy="0.0">float, wrapped to ±180°</tspan>
+<tspan x="800" dy="15.5">+ freshness timestamp</tspan>
+</text>
+<rect x="1030.0" y="180.0" width="300" height="100" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="1180" y="204.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#5b21b6">
+<tspan x="1180" dy="0.0">Heading hold on straights,</tspan>
+</text>
+<text x="1180" y="234.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="1180" dy="0.0">precise 90° turn execution</tspan>
+<tspan x="1180" dy="15.5">(turn_control / forward_control PID)</tspan>
+</text>
+<rect x="45.0" y="410.0" width="260" height="100" rx="14" fill="#ecfeff" stroke="#0891b2" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="175" y="434.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#0e7490">
+<tspan x="175" dy="0.0">VL53L0X (front)</tspan>
+</text>
+<text x="175" y="464.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="175" dy="0.0">I2C_NUM_0, laser time-of-flight</tspan>
+<tspan x="175" dy="15.5">0–2000 mm range</tspan>
+</text>
+<rect x="350.0" y="410.0" width="260" height="100" rx="14" fill="#ecfeff" stroke="#0891b2" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="480" y="434.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#0e7490">
+<tspan x="480" dy="0.0">tof_task (20 ms)</tspan>
+</text>
+<text x="480" y="464.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="480" dy="0.0">Reads distance, compares</tspan>
+<tspan x="480" dy="15.5">against warning / emergency mm</tspan>
+</text>
+<rect x="670.0" y="410.0" width="260" height="100" rx="14" fill="#ecfeff" stroke="#0891b2" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="800" y="434.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#0e7490">
+<tspan x="800" dy="0.0">tof_mutex → tof_state_t</tspan>
+</text>
+<text x="800" y="464.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="800" dy="0.0">front_mm, front_warning_wall,</tspan>
+<tspan x="800" dy="15.5">front_emergency_wall (bool)</tspan>
+</text>
+<rect x="1030.0" y="410.0" width="300" height="100" rx="14" fill="#ecfeff" stroke="#0891b2" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="1180" y="434.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#0e7490">
+<tspan x="1180" dy="0.0">Emergency stop trigger,</tspan>
+</text>
+<text x="1180" y="464.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="1180" dy="0.0">secondary corner-detect signal</tspan>
+<tspan x="1180" dy="15.5">(camera nav is primary)</tspan>
+</text>
+<rect x="45.0" y="640.0" width="260" height="100" rx="14" fill="#fdf4ff" stroke="#a21caf" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="175" y="664.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#86198f">
+<tspan x="175" dy="0.0">Hall-effect encoder</tspan>
+</text>
+<text x="175" y="694.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="175" dy="0.0">single sensor on motor shaft</tspan>
+<tspan x="175" dy="15.5">GPIO25, IRAM_ATTR ISR</tspan>
+</text>
+<rect x="350.0" y="640.0" width="260" height="100" rx="14" fill="#fdf4ff" stroke="#a21caf" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="480" y="664.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#86198f">
+<tspan x="480" dy="0.0">ISR (event-driven)</tspan>
+</text>
+<text x="480" y="694.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="480" dy="0.0">increments volatile tick count</tspan>
+<tspan x="480" dy="15.5">no task, no mutex needed</tspan>
+</text>
+<rect x="670.0" y="640.0" width="260" height="100" rx="14" fill="#fdf4ff" stroke="#a21caf" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="800" y="664.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#86198f">
+<tspan x="800" dy="0.0">encoder_get_distance_mm()</tspan>
+</text>
+<text x="800" y="694.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="800" dy="0.0">direct atomic read</tspan>
+<tspan x="800" dy="15.5">ticks × wheel geometry</tspan>
+</text>
+<rect x="1030.0" y="640.0" width="300" height="100" rx="14" fill="#fdf4ff" stroke="#a21caf" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="1180" y="664.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#86198f">
+<tspan x="1180" dy="0.0">Corner-check gating (150 mm min),</tspan>
+</text>
+<text x="1180" y="694.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="1180" dy="0.0">lap segment length,</tspan>
+<tspan x="1180" dy="15.5">STATE_FINISH distance target</tspan>
+</text>
+<rect x="45.0" y="870.0" width="260" height="100" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="175" y="894.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#1d4ed8">
+<tspan x="175" dy="0.0">Pi Camera Module 3</tspan>
+</text>
+<text x="175" y="924.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="175" dy="0.0">wide-angle, on Raspberry Pi 5</tspan>
+<tspan x="175" dy="15.5">HSV pillar + wall detection</tspan>
+</text>
+<rect x="350.0" y="870.0" width="260" height="100" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="480" y="894.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#1d4ed8">
+<tspan x="480" dy="0.0">rpi_task (20 ms)</tspan>
+</text>
+<text x="480" y="924.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="480" dy="0.0">Parses UART line:</tspan>
+<tspan x="480" dy="15.5">NAV:L=,R=;OBST:color,d,lat</tspan>
+</text>
+<rect x="670.0" y="870.0" width="260" height="100" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="800" y="894.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#1d4ed8">
+<tspan x="800" dy="0.0">rpi_mutex → rpi_state_t</tspan>
+</text>
+<text x="800" y="924.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="800" dy="0.0">nav_left/right (0–100),</tspan>
+<tspan x="800" dy="15.5">obst_color, dist_mm, lat_mm</tspan>
+</text>
+<rect x="1030.0" y="870.0" width="300" height="100" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#soft-shadow)"/>
+<text x="1180" y="894.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#1d4ed8">
+<tspan x="1180" dy="0.0">Corner direction + detection</tspan>
+</text>
+<text x="1180" y="924.2" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155">
+<tspan x="1180" dy="0.0">(Open), pillar side-pass</tspan>
+<tspan x="1180" dy="15.5">(Obstacle — in progress)</tspan>
+</text>
+<line x1="305" y1="230" x2="350" y2="230" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<line x1="610" y1="230" x2="670" y2="230" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<line x1="930" y1="230" x2="1030" y2="230" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<line x1="305" y1="460" x2="350" y2="460" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<line x1="610" y1="460" x2="670" y2="460" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<line x1="930" y1="460" x2="1030" y2="460" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<line x1="305" y1="690" x2="350" y2="690" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<line x1="610" y1="690" x2="670" y2="690" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<line x1="930" y1="690" x2="1030" y2="690" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<line x1="305" y1="920" x2="350" y2="920" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<line x1="610" y1="920" x2="670" y2="920" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<line x1="930" y1="920" x2="1030" y2="920" stroke="#64748b" stroke-width="2.2" marker-end="url(#arrowhead)"/>
+<text x="725.0" y="1051.6" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#64748b">
+<tspan x="725.0" dy="0.0">Every published field carries an age/timestamp. algorithm_task treats data older than its staleness</tspan>
+<tspan x="725.0" dy="16.9">threshold (e.g. 500 ms for the Pi link) as unusable and falls back to a safe default.</tspan>
+</text>
+
+</svg>
