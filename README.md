@@ -545,7 +545,94 @@ Debugging a robot that's driving itself, at speed, on a track you can't see from
 
 ---
 
-## 7. Build & Run
+## 7. Behind the Build
+
+A few photos from the process — the practice mat, the pillars, and the robot itself mid-build.
+
+---
+
+**The practice mat**
+
+Our university has an official WRO mat we could test on — in theory. In practice, getting there every day wasn't something we could count on. Road closures and checkpoints across the West Bank can turn a normal commute into hours of uncertainty, or make it impossible altogether, so building a testing schedule around "just drive to uni" wasn't realistic.
+
+<table align="center">
+<tr>
+<td align="center" width="500">
+<img src="06_Attachments/closed_roads_westbank.jpg" width="480"/><br/>
+<sub><b>What a normal commute can look like here</b></sub>
+</td>
+</tr>
+</table>
+
+So we built our own. Cheap boards, spray paint, and a lot of newspaper to protect the floor — the same mat, made at home, out of whatever we could actually get our hands on.
+
+<table align="center">
+<tr>
+<td align="center" width="330">
+<img src="06_Attachments/mat_materials.jpg" width="310"/><br/>
+<sub><b>Boards and spray paint — the start of it</b></sub>
+</td>
+<td align="center" width="330">
+<img src="06_Attachments/painting_mat_strips.jpg" width="310"/><br/>
+<sub><b>Border strips, freshly painted</b></sub>
+</td>
+<td align="center" width="330">
+<img src="06_Attachments/painting_at_night.jpg" width="310"/><br/>
+<sub><b>Still drying, late on the terrace</b></sub>
+</td>
+</tr>
+</table>
+
+<table align="center">
+<tr>
+<td align="center" width="330">
+<img src="06_Attachments/mat_frame_base.jpg" width="310"/><br/>
+<sub><b>Rolling frame, ready to move</b></sub>
+</td>
+<td align="center" width="330">
+<img src="06_Attachments/mat_installed_terrace.jpg" width="310"/><br/>
+<sub><b>Track border laid out on the terrace</b></sub>
+</td>
+<td align="center" width="330">
+<img src="06_Attachments/obstacle_pillar_test.jpg" width="310"/><br/>
+<sub><b>Test pillars placed for size</b></sub>
+</td>
+</tr>
+</table>
+
+---
+
+**The workbench**
+
+This is where the actual engineering happens — not in the documentation, here. Every part on this desk went through the same loop: measure it, print or cut it, test-fit it, and almost always redo it. Half-finished pillars next to calipers, wheels waiting to be wired, a soldering iron that never really gets put away. It's not clean, but every single fix in this repo started as a mess on this exact desk.
+
+<table align="center">
+<tr>
+<td align="center" width="500">
+<img src="06_Attachments/workbench_chaos.jpg" width="480"/><br/>
+<sub><b>Mid-build — pillars, wheels, tools, and a couple of water bottles</b></sub>
+</td>
+</tr>
+</table>
+
+---
+
+**The robot**
+
+The first real test on our own mat is what changed things. A calculation on paper is one thing — watching the robot actually try to turn, actually try to see a pillar, on the exact surface and dimensions we'd built, is another. Some assumptions from the spec sheets didn't survive contact with the real mat, and the chassis went through a redesign because of it. What's shown across this README is the result of that — not the first version we built, but the one that came out the other side of testing on the thing in the photos above.
+
+<table align="center">
+<tr>
+<td align="center" width="500">
+<img src="06_Attachments/robot_chassis_topdown.jpg" width="480"/><br/>
+<sub><b>Pi 5 and ESP32 stacked up top, wired in</b></sub>
+</td>
+</tr>
+</table>
+
+---
+
+## 8. Build & Run
 
 *Build, compile, and upload instructions will be added here once the firmware and vision pipeline reach a stable release.*
 
