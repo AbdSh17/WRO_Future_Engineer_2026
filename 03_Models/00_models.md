@@ -8,7 +8,6 @@ Every custom mechanical part of the vehicle, designed in Autodesk Fusion 360 and
 |------|-------------|
 | [`stl/`](stl/) | Print-ready STL files for all 16 custom parts |
 | [`drawings/`](drawings/) | Dimensioned multi-view engineering drawings (PDF), exported from Fusion 360 |
-| [`materials/`](materials/) | Images used by this document |
 | `00_models.md` | This file — the design documentation |
 
 ---
@@ -59,7 +58,7 @@ The steering linkage is a classic Ackermann trapezoid built from four printed pa
 The Ackermann effect comes from where the tie-rod eyes sit: they are angled inward so that the line through each kingpin and its tie-rod eye points toward the rear axle. Verified directly in CAD:
 
 <p align="center">
-  <img src="materials/ackerman_geometry_verification.png" width="320"/>
+  <img src="../06_Attachments/ackerman_geometry_verification.png" width="320"/>
 </p>
 <p align="center"><sub><b>Top view in Fusion 360 — construction lines from the steering pivots converge at the rear axle centerline, the Ackermann condition.</b></sub></p>
 
