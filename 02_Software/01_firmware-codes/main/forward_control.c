@@ -9,9 +9,9 @@ void forward_init(forward_ctrl_t *f) {
 
   // ── PID ──────────────────────────────────────
   // conservative gains — servo is correcting small drift, not executing a turn
-  f->pid.Kp = 2.5f;
-  f->pid.Ki = 0.15f;
-  f->pid.Kd = 0.02f;
+  f->pid.Kp = 1.6f;
+  f->pid.Ki = 0.075f;
+  // f->pid.Kd = 0.02f;
   f->pid.prev_error = 0.0f;
   f->pid.integral = 0.0f;
   f->pid.out_min = -100.0f;

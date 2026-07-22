@@ -15,3 +15,8 @@
 #define ALG_PERIOD_MS 50
 #define ALG_STACK_SIZE 6144
 #define ALG_PRIORITY 4
+
+// --- RPI (obstacle vision) task ---
+#define RPI_PERIOD_MS 20
+#define RPI_STACK_SIZE 3072
+#define RPI_PRIORITY 5

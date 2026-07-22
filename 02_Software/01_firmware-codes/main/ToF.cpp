@@ -91,6 +91,9 @@ esp_err_t ToF::init_side_tofs(VL53L0X &right, VL53L0X &left) {
   ESP_ERROR_CHECK(left.setAddress(TOF_LEFT_ADDR));
   vTaskDelay(ms_to_ticks(5));
 
+  right.setSignalRateLimitMcps(0.35);
+  left.setSignalRateLimitMcps(0.35);
+
   return ESP_OK;
 }
 esp_err_t ToF::init_front_tof(VL53L0X &front) {
