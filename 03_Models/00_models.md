@@ -58,7 +58,7 @@ The steering linkage is a classic Ackermann trapezoid built from four printed pa
 The Ackermann effect comes from where the tie-rod eyes sit: they are angled inward so that the line through each kingpin and its tie-rod eye points toward the rear axle. Verified directly in CAD:
 
 <p align="center">
-  <img src="../06_Attachments/ackerman_geometry_verification.png" width="320"/>
+  <img src="../08_Attachments/ackerman_geometry_verification.png" width="320"/>
 </p>
 <p align="center"><sub><b>Top view in Fusion 360 — construction lines from the steering pivots converge at the rear axle centerline, the Ackermann condition.</b></sub></p>
 

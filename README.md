@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="06_Attachments/Logo_Team.png" alt="Team Lannister Logo" width="350"/>
+  <img src="08_Attachments/Logo_Team.png" alt="Team Lannister Logo" width="350"/>
 </p>
 
 <h1 align="center">Team Lannister — WRO 2026 Future Engineers</h1>
@@ -44,11 +44,11 @@
 <table align="center">
 <tr>
 <td align="center" width="380">
-<img src="06_Attachments/team_photo_serious.jpg" width="360"/><br/>
+<img src="05_t_photos/team_photo_serious.jpg" width="360"/><br/>
 <sub><b>The official photo</b></sub>
 </td>
 <td align="center" width="380">
-<img src="06_Attachments/team_photo_funny.jpg" width="360"/><br/>
+<img src="05_t_photos/team_photo_funny.jpg" width="360"/><br/>
 <sub><b>The one that actually looks like us</b></sub>
 </td>
 </tr>
@@ -59,12 +59,12 @@
 <table align="center">
 <tr>
 <td align="center" width="240">
-<img src="06_Attachments/abdalraheem_photo.jpg" width="200"/><br/>
+<img src="05_t_photos/abdalraheem_photo.jpg" width="200"/><br/>
 <sub><b>Abdalraheem Shuaibi</b></sub><br/>
 <sub>Hardware & PCB Design / Software</sub>
 </td>
 <td align="center" width="240">
-<img src="06_Attachments/second_member_photo.jpg" width="200"/><br/>
+<img src="05_t_photos/second_member_photo.jpg" width="200"/><br/>
 <sub><b>Abdulrahman Sawalmeh</b></sub><br/>
 <sub>Mechanical Design / 3D Modelling</sub>
 </td>
@@ -82,7 +82,7 @@ This isn't my first attempt at WRO Future Engineers. I competed alone in the 202
 ## 2. The Challenge
 
 <p align="center">
-  <img src="06_Attachments/WRO_Mat.jpg" alt="WRO 2026 Future Engineers game field" width="600"/>
+  <img src="08_Attachments/WRO_Mat.jpg" alt="WRO 2026 Future Engineers game field" width="600"/>
 </p>
 
 WRO Future Engineers asks for a vehicle that can drive itself — no remote control, no shortcuts, just sensors, math, and code making decisions in real time. The car has to complete laps around a track that changes every round: walls move, corners narrow, and in the Obstacle Challenge, coloured pillars appear that the car has to read and respond to correctly. Get it wrong, and the round ends early.
@@ -104,7 +104,7 @@ The 300 × 200 mm footprint limit means the layout grows upward, not outward. On
 <table align="center">
 <tr>
 <td align="center" width="500">
-<img src="06_Attachments/robot_chassis_topdown.jpg" width="480"/><br/>
+<img src="08_Attachments/robot_chassis_topdown.jpg" width="480"/><br/>
 <sub><b>Pi 5 and ESP32 stacked on the upper decks, fully wired</b></sub>
 </td>
 </tr>
@@ -136,13 +136,13 @@ Click any drawing to open the full dimensioned PDF.
 <tr>
 <td align="center" width="370">
 <a href="03_Models/drawings/main_base.pdf">
-<img src="06_Attachments/drawing_main_base.png" width="350"/>
+<img src="08_Attachments/drawing_main_base.png" width="350"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/main_base.pdf">main_base.pdf</a> — Chassis plate (254 × 100 × 55 mm)</b></sub>
 </td>
 <td align="center" width="370">
 <a href="03_Models/drawings/front_top.pdf">
-<img src="06_Attachments/drawing_front_top.png" width="350"/>
+<img src="08_Attachments/drawing_front_top.png" width="350"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/front_top.pdf">front_top.pdf</a> — Servo & camera deck (90 × 115 × 25 mm)</b></sub>
 </td>
@@ -150,13 +150,13 @@ Click any drawing to open the full dimensioned PDF.
 <tr>
 <td align="center" width="370">
 <a href="03_Models/drawings/mid_top.pdf">
-<img src="06_Attachments/drawing_mid_top.png" width="350"/>
+<img src="08_Attachments/drawing_mid_top.png" width="350"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/mid_top.pdf">mid_top.pdf</a> — PCB platform (100 × 75 × 17 mm)</b></sub>
 </td>
 <td align="center" width="370">
 <a href="03_Models/drawings/back_top.pdf">
-<img src="06_Attachments/drawing_back_top.png" width="350"/>
+<img src="08_Attachments/drawing_back_top.png" width="350"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/back_top.pdf">back_top.pdf</a> — Pi & power bank deck (100 × 68 × 22 mm)</b></sub>
 </td>
@@ -167,7 +167,7 @@ Click any drawing to open the full dimensioned PDF.
 <tr>
 <td align="center" width="500">
 <a href="03_Models/drawings/camera_holder.pdf">
-<img src="06_Attachments/drawing_camera_holder.png" width="480"/>
+<img src="08_Attachments/drawing_camera_holder.png" width="480"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/camera_holder.pdf">camera_holder.pdf</a> — Camera mast (40 × 24 × 154.7 mm) — the tallest printed part, raising the lens above the vehicle body</b></sub>
 </td>
@@ -198,7 +198,7 @@ The geometry is implemented in three printed parts: the `left_knuckle` and `righ
 <table align="center">
 <tr>
 <td align="center" width="350">
-<img src="06_Attachments/ackerman_geometry_verification.png" width="320"/><br/>
+<img src="08_Attachments/ackerman_geometry_verification.png" width="320"/><br/>
 <sub><b>Top view in Fusion 360 — construction lines from the steering pivots converge at the rear axle centerline</b></sub>
 </td>
 </tr>
@@ -212,19 +212,19 @@ Full geometry, math, and the comparison against parallel steering is in [`00_Res
 <tr>
 <td align="center" width="250">
 <a href="03_Models/drawings/ackerman_rod.pdf">
-<img src="06_Attachments/drawing_ackerman_rod.png" width="230"/>
+<img src="08_Attachments/drawing_ackerman_rod.png" width="230"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/ackerman_rod.pdf">ackerman_rod.pdf</a><br/>Tie rod (76.9 × 8 × 8 mm)</b></sub>
 </td>
 <td align="center" width="250">
 <a href="03_Models/drawings/knuckles.pdf">
-<img src="06_Attachments/drawing_knuckles.png" width="230"/>
+<img src="08_Attachments/drawing_knuckles.png" width="230"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/knuckles.pdf">knuckles.pdf</a><br/>L/R knuckles (17 × 47.8 × 12 mm)</b></sub>
 </td>
 <td align="center" width="250">
 <a href="03_Models/drawings/servo_arm.pdf">
-<img src="06_Attachments/drawing_servo_arm.png" width="230"/>
+<img src="08_Attachments/drawing_servo_arm.png" width="230"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/servo_arm.pdf">servo_arm.pdf</a><br/>Servo arm (33.5 × 12 × 7.5 mm)</b></sub>
 </td>
@@ -260,13 +260,13 @@ Full drivetrain reasoning is in [`00_Research/04_mechanical/01_Differential.md`]
 <tr>
 <td align="center" width="370">
 <a href="03_Models/drawings/motor_gear.pdf">
-<img src="06_Attachments/drawing_motor_gear.png" width="350"/>
+<img src="08_Attachments/drawing_motor_gear.png" width="350"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/motor_gear.pdf">motor_gear.pdf</a> — Bevel pinion (14.5 × 15.9 × 14.5 mm)</b></sub>
 </td>
 <td align="center" width="370">
 <a href="03_Models/drawings/differantial_rings_holder.pdf">
-<img src="06_Attachments/drawing_differantial_rings_holder.png" width="350"/>
+<img src="08_Attachments/drawing_differantial_rings_holder.png" width="350"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/differantial_rings&holder.pdf">differantial_rings&holder.pdf</a> — Carrier rings + retaining ring</b></sub>
 </td>
@@ -274,13 +274,13 @@ Full drivetrain reasoning is in [`00_Research/04_mechanical/01_Differential.md`]
 <tr>
 <td align="center" width="370">
 <a href="03_Models/drawings/differantial_cup.pdf">
-<img src="06_Attachments/drawing_differantial_cup.png" width="350"/>
+<img src="08_Attachments/drawing_differantial_cup.png" width="350"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/differantial_cup.pdf">differantial_cup.pdf</a> — Drive coupling cup (28.2 × 13.2 × 13.2 mm)</b></sub>
 </td>
 <td align="center" width="370">
 <a href="03_Models/drawings/shaft_holder.pdf">
-<img src="06_Attachments/drawing_shaft_holder.png" width="350"/>
+<img src="08_Attachments/drawing_shaft_holder.png" width="350"/>
 </a><br/>
 <sub><b><a href="03_Models/drawings/shaft_holder.pdf">shaft_holder.pdf</a> — Outboard bearing block (28 × 13 mm, 4 mm shaft)</b></sub>
 </td>
@@ -310,11 +310,11 @@ The robot runs on two separate computers, each doing a different job.
 <table align="center">
 <tr>
 <td align="center" width="260">
-<img src="06_Attachments/ESP32_animation.gif" width="220"/><br/>
+<img src="08_Attachments/ESP32_animation.gif" width="220"/><br/>
 <sub><b>ESP32 — real-time control</b></sub>
 </td>
 <td align="center" width="260">
-<img src="06_Attachments/RPI5_animation.gif" width="220"/><br/>
+<img src="08_Attachments/RPI5_animation.gif" width="220"/><br/>
 <sub><b>Raspberry Pi 5 — vision</b></sub>
 </td>
 </tr>
@@ -325,7 +325,7 @@ The **ESP32** handles everything that has to happen in real time and can't affor
 The **Raspberry Pi 5** is reserved for vision. Camera processing is comparatively heavy and doesn't need to run at the same tight, predictable cadence as motor control — so it lives on its own board entirely, talking to the ESP32 over UART.
 
 <p align="center">
-  <img src="06_Attachments/ESP2RPI_Connection.jpg" alt="ESP32 to Raspberry Pi connection" width="450"/>
+  <img src="08_Attachments/ESP2RPI_Connection.jpg" alt="ESP32 to Raspberry Pi connection" width="450"/>
 </p>
 <p align="center"><sub><b>How the two boards talk to each other</b></sub></p>
 
@@ -338,7 +338,7 @@ Splitting the compute this way means a heavy vision frame never stalls a steerin
 <table align="center">
 <tr>
 <td align="center" width="220">
-<img src="06_Attachments/Raspberry_Pi_Camera.jpg" width="180"/><br/>
+<img src="08_Attachments/Raspberry_Pi_Camera.jpg" width="180"/><br/>
 <sub><b>Camera Module 3, wide-angle</b></sub>
 </td>
 </tr>
@@ -349,7 +349,7 @@ We're using the **Raspberry Pi Camera Module 3**, wide-angle variant (~120° dia
 <table align="center">
 <tr>
 <td align="center" width="400">
-<img src="06_Attachments/connect-camera.gif" width="380"/><br/>
+<img src="08_Attachments/connect-camera.gif" width="380"/><br/>
 <sub><b>Connecting the camera</b></sub>
 </td>
 </tr>
@@ -448,7 +448,7 @@ Full parts list, quantities, and links back to every underlying calculation: [`0
 ### 4.4 Power Architecture
 
 <p align="center">
-  <img src="06_Attachments/power_system_architecture.drawio.png" alt="Power system architecture" width="700"/>
+  <img src="08_Attachments/power_system_architecture.drawio.png" alt="Power system architecture" width="700"/>
 </p>
 <p align="center"><sub><b>The full power rail layout, battery to load</b></sub></p>
 
@@ -461,7 +461,7 @@ The robot runs on a single 3S Li-Ion battery feeding two independent MP1584EN bu
 <table align="center">
 <tr>
 <td align="center" width="440">
-<img src="06_Attachments/Capacitor-as-DC-Voltage-Source.gif" width="420"/><br/>
+<img src="08_Attachments/Capacitor-as-DC-Voltage-Source.gif" width="420"/><br/>
 <sub><b>A capacitor acting as a local DC source</b></sub>
 </td>
 </tr>
@@ -499,7 +499,7 @@ Three layers, each with one job, and none of them reaching into the others:
 <table align="center">
 <tr>
 <td align="center" width="820">
-<img src="06_Attachments/freertos_task_architecture.svg" width="800"/><br/>
+<img src="08_Attachments/freertos_task_architecture.svg" width="800"/><br/>
 <sub><b>Five tasks, one shared-state layer, one direction of data flow</b></sub>
 </td>
 </tr>
@@ -526,7 +526,7 @@ Three layers, each with one job, and none of them reaching into the others:
 <table align="center">
 <tr>
 <td align="center" width="670">
-<img src="06_Attachments/sensor_data_flow.svg" width="650"/><br/>
+<img src="08_Attachments/sensor_data_flow.svg" width="650"/><br/>
 <sub><b>From raw signal to driving decision, four independent pipelines</b></sub>
 </td>
 </tr>
@@ -541,7 +541,7 @@ Every published value carries an age. `algorithm_task` never trusts a stale read
 <table align="center">
 <tr>
 <td align="center" width="570">
-<img src="06_Attachments/algorithm_flowchart_open_challenge.svg" width="550"/><br/>
+<img src="08_Attachments/algorithm_flowchart_open_challenge.svg" width="550"/><br/>
 <sub><b>The full Open Challenge state machine, as implemented in <code>task_algorithm.cpp</code></b></sub>
 </td>
 </tr>
@@ -579,7 +579,7 @@ Both the turn and heading-hold controllers run on the same underlying `pid_updat
 <table align="center">
 <tr>
 <td align="center" width="720">
-<img src="06_Attachments/PID_intro.png" width="700"/><br/>
+<img src="08_Attachments/PID_intro.png" width="700"/><br/>
 <sub><b>The closed loop: target heading in, yaw out, error drives the correction</b></sub>
 </td>
 </tr>
@@ -601,7 +601,7 @@ The difference in gains comes directly from what each controller corrects: `turn
 <table align="center">
 <tr>
 <td align="center" width="1370">
-<img src="06_Attachments/pid_tuning_process.svg" width="1350"/><br/>
+<img src="08_Attachments/pid_tuning_process.svg" width="1350"/><br/>
 <sub><b>The order we followed for both controllers</b></sub>
 </td>
 </tr>
@@ -612,7 +612,7 @@ Zero D and I → raise P until the response is close but oscillating → raise D
 <table align="center">
 <tr>
 <td align="center" width="1320">
-<img src="06_Attachments/pid_tuning_response.svg" width="1300"/><br/>
+<img src="08_Attachments/pid_tuning_response.svg" width="1300"/><br/>
 <sub><b>Step response at each tuning stage — turn_control, 90° target</b></sub>
 </td>
 </tr>
@@ -621,7 +621,7 @@ Zero D and I → raise P until the response is close but oscillating → raise D
 <table align="center">
 <tr>
 <td align="center" width="1320">
-<img src="06_Attachments/pid_tuning_response_forward.svg" width="1300"/><br/>
+<img src="08_Attachments/pid_tuning_response_forward.svg" width="1300"/><br/>
 <sub><b>Step response at each tuning stage — forward_control, 8° drift correction</b></sub>
 </td>
 </tr>
@@ -634,7 +634,7 @@ Zero D and I → raise P until the response is close but oscillating → raise D
 <table align="center">
 <tr>
 <td align="center" width="720">
-<img src="06_Attachments/baggy_dashboard_screenshot.png" width="700"/><br/>
+<img src="08_Attachments/baggy_dashboard_screenshot.png" width="700"/><br/>
 <sub><b>Baggy — our real-time telemetry dashboard</b></sub>
 </td>
 </tr>
@@ -653,29 +653,29 @@ Six views of the assembled vehicle. Click any image for the full-resolution vers
 <table align="center">
 <tr>
 <td align="center" width="330">
-<img src="06_Attachments/vehicle_photo_front.jpg" width="310"/><br/>
+<img src="06_v-photos/vehicle_photo_front.jpg" width="310"/><br/>
 <sub><b>Front</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_Attachments/vehicle_photo_back.jpg" width="310"/><br/>
+<img src="06_v-photos/vehicle_photo_back.jpg" width="310"/><br/>
 <sub><b>Back</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_Attachments/vehicle_photo_left.jpg" width="310"/><br/>
+<img src="06_v-photos/vehicle_photo_left.jpg" width="310"/><br/>
 <sub><b>Left side</b></sub>
 </td>
 </tr>
 <tr>
 <td align="center" width="330">
-<img src="06_Attachments/vehicle_photo_right.jpg" width="310"/><br/>
+<img src="06_v-photos/vehicle_photo_right.jpg" width="310"/><br/>
 <sub><b>Right side</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_Attachments/vehicle_photo_top.jpg" width="310"/><br/>
+<img src="06_v-photos/vehicle_photo_top.jpg" width="310"/><br/>
 <sub><b>Top</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_Attachments/vehicle_photo_bottom.jpg" width="310"/><br/>
+<img src="06_v-photos/vehicle_photo_bottom.jpg" width="310"/><br/>
 <sub><b>Bottom</b></sub>
 </td>
 </tr>
@@ -693,7 +693,7 @@ Six views of the assembled vehicle. Click any image for the full-resolution vers
 <tr>
 <td align="center" width="700">
 <a href="https://youtu.be/OPEN_CHALLENGE_LINK_HERE">
-<img src="06_Attachments/open_challenge_run.gif" width="680"/>
+<img src="07_videos/open_challenge_run.gif" width="680"/>
 </a><br/>
 <sub><b>▶ Open Challenge run — click to watch on YouTube</b></sub>
 </td>
@@ -710,7 +710,7 @@ Six views of the assembled vehicle. Click any image for the full-resolution vers
 <tr>
 <td align="center" width="700">
 <a href="https://youtu.be/OBSTACLE_CHALLENGE_LINK_HERE">
-<img src="06_Attachments/obstacle_challenge_run.gif" width="680"/>
+<img src="07_videos/obstacle_challenge_run.gif" width="680"/>
 </a><br/>
 <sub><b>▶ Obstacle Challenge run — click to watch on YouTube</b></sub>
 </td>
@@ -728,8 +728,10 @@ Six views of the assembled vehicle. Click any image for the full-resolution vers
 | [`02_Software`](02_Software) | ESP32 firmware source code and module documentation |
 | [`03_Models`](03_Models) | All 16 custom 3D-printed parts: STL files, dimensioned drawings, and design documentation |
 | [`04_PCB`](04_PCB) | Full circuit schematic |
-| [`05_Media`](05_Media) | Robot and team photos, video links |
-| [`06_Attachments`](06_Attachments) | Logo, drawings, diagrams, and supporting images used across the documentation |
+| [`05_t_photos`](05_t_photos) | Team photos — official, casual, and individual member portraits |
+| [`06_v-photos`](06_v-photos) | Vehicle photos — all six required views (front, back, left, right, top, bottom) |
+| [`07_videos`](07_videos) | Competition run videos — Open Challenge and Obstacle Challenge |
+| [`08_Attachments`](08_Attachments) | Logo, drawing thumbnails, diagrams, and supporting images used across the documentation |
 
 ---
 
@@ -752,7 +754,7 @@ Our university has an official WRO mat we could test on — in theory. In practi
 <table align="center">
 <tr>
 <td align="center" width="500">
-<img src="06_Attachments/closed_roads_westbank.jpg" width="480"/><br/>
+<img src="08_Attachments/closed_roads_westbank.jpg" width="480"/><br/>
 <sub><b>What a normal commute can look like here</b></sub>
 </td>
 </tr>
@@ -763,15 +765,15 @@ So we built our own. Cheap boards, spray paint, and a lot of newspaper to protec
 <table align="center">
 <tr>
 <td align="center" width="330">
-<img src="06_Attachments/mat_materials.jpg" width="310"/><br/>
+<img src="08_Attachments/mat_materials.jpg" width="310"/><br/>
 <sub><b>Boards and spray paint — the start of it</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_Attachments/painting_mat_strips.jpg" width="310"/><br/>
+<img src="08_Attachments/painting_mat_strips.jpg" width="310"/><br/>
 <sub><b>Border strips, freshly painted</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_Attachments/painting_at_night.jpg" width="310"/><br/>
+<img src="08_Attachments/painting_at_night.jpg" width="310"/><br/>
 <sub><b>Still drying, late on the terrace</b></sub>
 </td>
 </tr>
@@ -780,15 +782,15 @@ So we built our own. Cheap boards, spray paint, and a lot of newspaper to protec
 <table align="center">
 <tr>
 <td align="center" width="330">
-<img src="06_Attachments/mat_frame_base.jpg" width="310"/><br/>
+<img src="08_Attachments/mat_frame_base.jpg" width="310"/><br/>
 <sub><b>Rolling frame, ready to move</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_Attachments/mat_installed_terrace.jpg" width="310"/><br/>
+<img src="08_Attachments/mat_installed_terrace.jpg" width="310"/><br/>
 <sub><b>Track border laid out on the terrace</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_Attachments/obstacle_pillar_test.jpg" width="310"/><br/>
+<img src="08_Attachments/obstacle_pillar_test.jpg" width="310"/><br/>
 <sub><b>Test pillars placed for size</b></sub>
 </td>
 </tr>
@@ -803,7 +805,7 @@ This is where the actual engineering happens — not in the documentation, here.
 <table align="center">
 <tr>
 <td align="center" width="500">
-<img src="06_Attachments/workbench_chaos.jpg" width="480"/><br/>
+<img src="08_Attachments/workbench_chaos.jpg" width="480"/><br/>
 <sub><b>Mid-build — pillars, wheels, tools, and a couple of water bottles</b></sub>
 </td>
 </tr>
@@ -818,7 +820,7 @@ The first real test on our own mat is what changed things. A calculation on pape
 <table align="center">
 <tr>
 <td align="center" width="500">
-<img src="06_Attachments/robot_chassis_topdown.jpg" width="480"/><br/>
+<img src="08_Attachments/robot_chassis_topdown.jpg" width="480"/><br/>
 <sub><b>Pi 5 and ESP32 stacked up top, wired in</b></sub>
 </td>
 </tr>
