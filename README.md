@@ -58,15 +58,10 @@
 
 <table align="center">
 <tr>
-<td align="center" width="240">
-<img src="05_t_photos/abdalraheem_photo.jpg" width="200"/><br/>
+<td align="center" width="300">
+<img src="05_t_photos/abdalraheem_photo.jpg" width="260"/><br/>
 <sub><b>Abdalraheem Shuaibi</b></sub><br/>
 <sub>Hardware & PCB Design / Software</sub>
-</td>
-<td align="center" width="240">
-<img src="05_t_photos/second_member_photo.jpg" width="200"/><br/>
-<sub><b>Abdulrahman Sawalmeh</b></sub><br/>
-<sub>Mechanical Design / 3D Modelling</sub>
 </td>
 </tr>
 </table>
@@ -76,6 +71,20 @@ I'm a 21-year-old Computer Engineering student at Birzeit University. I started 
 Alongside this competition, I've been juggling a graduation project funded by the EU and the Palestinian Ministry of Health — a commitment that's demanded careful time management this season.
 
 This isn't my first attempt at WRO Future Engineers. I competed alone in the 2025 season and things were going well, until a sensor burned out just before the local competition, ending that run early. That experience is a big part of why this repository exists in the form it does now — more testing, more documentation, fewer single points of failure.
+
+---
+
+<table align="center">
+<tr>
+<td align="center" width="300">
+<img src="05_t_photos/second_member_photo.jpg" width="260"/><br/>
+<sub><b>Abdulrahman Sawalmeh</b></sub><br/>
+<sub>Mechanical Design / 3D Modelling</sub>
+</td>
+</tr>
+</table>
+
+*[Bio pending]*
 
 ---
 
@@ -653,29 +662,29 @@ Six views of the assembled vehicle. Click any image for the full-resolution vers
 <table align="center">
 <tr>
 <td align="center" width="330">
-<img src="06_v-photos/vehicle_photo_front.jpg" width="310"/><br/>
+<img src="06_v_photos/vehicle_photo_front.jpg" width="310"/><br/>
 <sub><b>Front</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_v-photos/vehicle_photo_back.jpg" width="310"/><br/>
+<img src="06_v_photos/vehicle_photo_back.jpg" width="310"/><br/>
 <sub><b>Back</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_v-photos/vehicle_photo_left.jpg" width="310"/><br/>
+<img src="06_v_photos/vehicle_photo_left.jpg" width="310"/><br/>
 <sub><b>Left side</b></sub>
 </td>
 </tr>
 <tr>
 <td align="center" width="330">
-<img src="06_v-photos/vehicle_photo_right.jpg" width="310"/><br/>
+<img src="06_v_photos/vehicle_photo_right.jpg" width="310"/><br/>
 <sub><b>Right side</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_v-photos/vehicle_photo_top.jpg" width="310"/><br/>
+<img src="06_v_photos/vehicle_photo_top.jpg" width="310"/><br/>
 <sub><b>Top</b></sub>
 </td>
 <td align="center" width="330">
-<img src="06_v-photos/vehicle_photo_bottom.jpg" width="310"/><br/>
+<img src="06_v_photos/vehicle_photo_bottom.jpg" width="310"/><br/>
 <sub><b>Bottom</b></sub>
 </td>
 </tr>
