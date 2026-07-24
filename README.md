@@ -79,12 +79,18 @@ This isn't my first attempt at WRO Future Engineers. I competed alone in the 202
 <td align="center" width="300">
 <img src="05_t_photos/second_member_photo.jpg" width="260"/><br/>
 <sub><b>Abdulrahman Sawalmeh</b></sub><br/>
-<sub>Mechanical Design / 3D Modelling</sub>
+<sub>Mechanical Design / Research / Hardware</sub>
 </td>
 </tr>
 </table>
 
-*[Bio pending]*
+I'm a 21-year-old Computer Engineering student at Birzeit University. My main role on this team is the mechanical side — designing every printed part, building the physical robot, and making sure what looks right on screen actually works when it's sitting on a track. Along the way I also helped with component research, sourcing and buying parts, and sat in on algorithm discussions.
+
+The 3D design side started about three months before this project, entirely self-taught. I picked up Fusion 360 out of curiosity — I thought it looked cool, kept going, and it turned into the thing I spent most of this competition doing. Three months in, a complete custom chassis with 16 printed parts and two rounds of mechanical iteration isn't where I expected to end up when I opened Fusion for the first time.
+
+The hardest part wasn't any single part failing — it was the differential assembly. The obvious fixes for the axial play problem were both blocked by gear clearance on either side, and working around that constraint took longer than the original design. The retaining ring solution is simple in hindsight. It wasn't at the time.
+
+This competition was the first time I built something that had to work in the real world, not just look right on screen. That gap between a model and a physical object that actually does its job — closing it is what made this season worth it.
 
 ---
 
